@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\djree\\source\\repos\\PolarHab\\PolarHab\\PolarHab.csproj": {}
+    "C:\\Users\\djree\\source\\repos\\HackathonProject\\PolarHab\\PolarHab\\PolarHab.csproj": {}
   },
   "projects": {
-    "C:\\Users\\djree\\source\\repos\\PolarHab\\PolarHab\\PolarHab.csproj": {
+    "C:\\Users\\djree\\source\\repos\\HackathonProject\\PolarHab\\PolarHab\\PolarHab.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\djree\\source\\repos\\PolarHab\\PolarHab\\PolarHab.csproj",
+        "projectUniqueName": "C:\\Users\\djree\\source\\repos\\HackathonProject\\PolarHab\\PolarHab\\PolarHab.csproj",
         "projectName": "PolarHab",
-        "projectPath": "C:\\Users\\djree\\source\\repos\\PolarHab\\PolarHab\\PolarHab.csproj",
+        "projectPath": "C:\\Users\\djree\\source\\repos\\HackathonProject\\PolarHab\\PolarHab\\PolarHab.csproj",
         "packagesPath": "C:\\Users\\djree\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\djree\\source\\repos\\PolarHab\\PolarHab\\obj\\",
+        "outputPath": "C:\\Users\\djree\\source\\repos\\HackathonProject\\PolarHab\\PolarHab\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
