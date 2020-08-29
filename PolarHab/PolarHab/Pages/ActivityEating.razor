@@ -460,6 +460,7 @@
         alreadyCompleted = true;
         this.StateHasChanged();
         await JSRuntime.InvokeAsync<string>("blazorExtensions.WriteCookie", "quizCompleted-"+selectedQuestion.CookieTag, "true", 100);
+        EXPSystem();
 
     }
     public async void PlayAudio(bool correct)
@@ -498,5 +499,13 @@
         public int answerDialogue { get; set; }
         public bool currentlyAnswered { get; set; }
     }
+    public async void EXPSystem()
+    {
+        var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie");
+        var cookies = result.Split("; ");
+        PolarHab.Data.RMessenger.OnChangeProgressBar((double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 10);
+        this.StateHasChanged();
+    }
 
 }
+

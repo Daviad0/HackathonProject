@@ -1,17 +1,52 @@
 ﻿@page "/certificate"
 @inject IJSRuntime JSRuntime;
+<style>
+    .centered {
+        position: absolute;
+        top: 49%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .date {
+        position: absolute;
+        top: 57.5%;
+        left: 39%;
+        transform: translate(-50%, -50%);
+    }
 
+    .container {
+        position: relative;
+        text-align: center;
+        color: black;
+    }
+</style>
 <body>
-
-    <button class="btn btn-primary" @onclick="CanvasUwu">Click me</button>
-
-    <div id="capture" style="padding: 10px; background: #f5da55">
-        <h4 style="color: #000; ">Hello world!</h4>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Your Name</span>
+      </div>
+      <input type="text" class="form-control" @bind="StudentName" placeholder="John Doe" aria-label="Name" aria-describedby="basic-addon1">
     </div>
+    <div>
+
+    </div>
+    <button class="btn btn-primary" @onclick="CanvasUwu">Download Certificate</button>
+    <div style="text-align:center;padding:0;margin:0">
+        <div class="container" style="display:inline-block;padding:0px;margin:0px">
+            <div id="capture">
+                <img src="images/Certificate.png" style="display:inline-block;width:1000px">
+                <span class="centered" style="font-size:40px;width:800px;font-family:'Century Gothic'">David Reeves</span>
+                <span class="date" style="font-size:20px;width:800px;font-family:'Century Gothic'">@DateTime.Now.ToShortDateString()</span>
+            </div>
+            
+        </div>
+    </div>
+    
 </body>
 
 
 @code {
+    public string StudentName { get; set; }
     private async void CanvasUwu()
     {
         Console.WriteLine("uwu");

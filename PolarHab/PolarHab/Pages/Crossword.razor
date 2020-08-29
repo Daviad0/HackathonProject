@@ -1,22 +1,82 @@
 ﻿@page "/wordsearch"
 @inject IJSRuntime JSRuntime;
 
+<head>
+<style>
 
-<!-- <h3>Crossword</h3>
-<img.src=  width="100" height= "100" align= "right" />
-<div class="boxed" width= "200" height="50" align= "center"/>
--->
+body {
+	font-family: 'Century Gothic'; 
+	margin: 0
+}
+
+.header {
+	padding:80px;
+	text-align: center;
+	background: #86a3c3;
+	color: white;
+    border-radius:10px;
+}
+
+    .header h1 {
+        font-size: 40px;
+    }
+
+    .main {
+        -ms-flex: 80%;
+        flex: 80%;
+        background-color: white;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+	<h1>Word Search</h1>
+</div>
+<audio id="player">
+    <source id="playerSource" src="" />
+</audio>
+<div class="main">
+	<h2>Here's a fun crossword puzzle </h2>
+	<div class="coloring1">
+		<img src="images/wordsearch.png" id="wordsearch1" style="width:500px;height:500px" align= "left" />
+	</div>
+</div>
+<input type="button" value="Download Word Search Sheets" @onclick="DownloadFiles" />
+</body>
+<audio id="player">
+    <source id="playerSource" src="" />
+</audio>
+<!-- download file not cropped correctly -->
 
 @code{
     protected override async Task OnInitializedAsync()
     {
         CompletedAddCookie();
     }
+    protected override void OnAfterRender(bool firstRender)
+	{
+	
+		base.OnAfterRender(firstRender);
+	}
     public async void CompletedAddCookie()
     {
-        
+
         await JSRuntime.InvokeAsync<string>("blazorExtensions.WriteCookie", "activityCompleted-wordsearch", "true", 100);
         this.StateHasChanged();
-        M
+        EXPSystem();
+    }
+    public async void EXPSystem()
+    {
+        var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie");
+        var cookies = result.Split("; ");
+        PolarHab.Data.RMessenger.OnChangeProgressBar((double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 10);
+        this.StateHasChanged();
+    }
+    public async void DownloadFiles()
+    {
+        await JSRuntime.InvokeAsync<string>("DownloadImage", "wordsearch1", "WordSearch.png");
+        CompletedAddCookie();
     }
 }

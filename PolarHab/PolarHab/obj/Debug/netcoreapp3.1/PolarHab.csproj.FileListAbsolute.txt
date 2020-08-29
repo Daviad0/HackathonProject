@@ -220,3 +220,7 @@ C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcore
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\scripts\html2canvas.js
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Timeline.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\Timeline.razor.g.cs
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\longpolarbear2.png
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\polarbearlong.png
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\progressgained.wav
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\HomePageImage.png

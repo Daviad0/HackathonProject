@@ -1,4 +1,5 @@
 ﻿@page "/coloringpages"
+@inject IJSRuntime JSRuntime;
 
 <html lang="en">
 <head>
@@ -14,18 +15,18 @@ body {
 	text-align: center;
 	background: #86a3c3;
 	color: white;
+    border-radius:10px;
 }
 
-.header h1{
-	font-size: 40px;
-}
+    .header h1 {
+        font-size: 40px;
+    }
 
-.main {
-	-ms-flex: 80%;
-	flex:80%;
-	background-color: white;
-	padding:10px;
-}
+    .main {
+        -ms-flex: 80%;
+        flex: 80%;
+        background-color: white;
+    }
 
 </style>
 </head>
@@ -34,20 +35,59 @@ body {
 <div class="header">
 	<h1>Coloring Pages</h1>
 </div>
-
+<audio id="player">
+    <source id="playerSource" src="" />
+</audio>
 <div class="main">
 	<h2>Here's a few coloring pages for you to try!</h2>
 	<div class="coloring1">
-		<img src="images/coloringsheet.png" style="width:500px;height:500px" align= "left"/>
+		<img src="images/coloringsheet.png" id="coloringsheet1" style="width:500px;height:500px" align= "left" />
+        <br>
+        <br>
 	</div>
 	<div class="coloring2">
-		<img src="images/coloringpolarbears.jpg" style="width:500px;height:500px" align= "left"/>
+		<img src="images/coloringpolarbears.jpg" id="coloringsheet2" style="width:500px;height:500px" align= "left"/>
+        <br>
+        <br>
 	</div>
 	<div class="coloring3">
-		<img src="images/polar-bear-with-two-cubs-coloring-page.png" style="width:500px;height:500px" align= "left"/>
+		<img src="images/polar-bear-with-two-cubs-coloring-page.png" id="coloringsheet3" style="width:500px;height:500px" align= "left"/>
 	</div>
-	<p>You can either save this image to print it out or copy it down onto paper!</p>
 </div>
+<input type="button" value="Download Coloring Sheets" @onclick="DownloadFiles" />
 </body>
 </html>
+@code{
+    protected override async Task OnInitializedAsync()
+    {
+        
+    }
+    protected override void OnAfterRender(bool firstRender)
+    {
+        
+        base.OnAfterRender(firstRender);
+    }
+    public async void CompletedAddCookie()
+    {
+        
+        await JSRuntime.InvokeAsync<string>("blazorExtensions.WriteCookie", "activityCompleted-coloringpages", "true", 100);
+        this.StateHasChanged();
+        EXPSystem();
+    }
+    public async void EXPSystem()
+    {
+        var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie");
+        var cookies = result.Split("; ");
+        PolarHab.Data.RMessenger.OnChangeProgressBar((double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 10);
+        this.StateHasChanged();
+    }
+    public async void DownloadFiles()
+    {
+        await JSRuntime.InvokeAsync<string>("DownloadImage", "coloringsheet1", "ColoringSheet1.png");
+        await JSRuntime.InvokeAsync<string>("DownloadImage", "coloringsheet2", "ColoringSheet2.png");
+        await JSRuntime.InvokeAsync<string>("DownloadImage", "coloringsheet3", "ColoringSheet3.png");
+        CompletedAddCookie();
+    }
+
+}
 

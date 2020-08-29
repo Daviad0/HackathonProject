@@ -56,6 +56,8 @@
         }
         window.PlayAudioFile = (src) => {
             var audio = document.getElementById('player');
+            var link = document.createElement('a');
+            link.click();
             if (audio != null) {
                 var audioSource = document.getElementById('playerSource');
                 if (audioSource != null) {
@@ -69,6 +71,14 @@
             html2canvas(document.querySelector("#capture")).then(canvas => {
                 var link = document.createElement('a');
                 link.download = 'pandaCertificate.png';
+                link.href = canvas.toDataURL()
+                link.click();
+            });
+        }
+        window.DownloadImage = (imageid, downloadname) => {
+            html2canvas(document.querySelector("#" + imageid)).then(canvas => {
+                var link = document.createElement('a');
+                link.download = downloadname;
                 link.href = canvas.toDataURL()
                 link.click();
             });
