@@ -19,5 +19,10 @@ namespace PolarHab.DbAssets
         public string CorrectDialogue { get; set; }
         public string CorrectWhyTitle { get; set; }
         public string CorrectWhyDescription { get; set; }
+        public string Answer1ModelJson { get; set; }
+        public string Answer2ModelJson { get; set; }
+        public string Answer3ModelJson { get; set; }
+        public string Answer4ModelJson { get; set; }
+        public string CookieTag { get; set; }
     }
 }

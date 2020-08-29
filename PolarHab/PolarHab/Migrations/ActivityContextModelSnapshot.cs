@@ -25,6 +25,21 @@ namespace PolarHab.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+                    b.Property<string>("Answer1ModelJson")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Answer2ModelJson")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Answer3ModelJson")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Answer4ModelJson")
+                        .HasColumnType("text");
+
+                    b.Property<string>("CookieTag")
+                        .HasColumnType("text");
+
                     b.Property<string>("CorrectDialogue")
                         .HasColumnType("text");
 

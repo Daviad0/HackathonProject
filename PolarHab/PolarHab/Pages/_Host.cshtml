@@ -32,6 +32,7 @@
     </div>
 
     <script src="_framework/blazor.server.js"></script>
+    <script src="scripts/html2canvas.js"></script>
     <script>
         window.blazorExtensions = {
 
@@ -51,7 +52,26 @@
             ReadCookie: function () {
 
                 return document.cookie;
+            },
+        }
+        window.PlayAudioFile = (src) => {
+            var audio = document.getElementById('player');
+            if (audio != null) {
+                var audioSource = document.getElementById('playerSource');
+                if (audioSource != null) {
+                    audioSource.src = src;
+                    audio.load();
+                    audio.play();
+                }
             }
+        }
+        window.AddCanvas = () => {
+            html2canvas(document.querySelector("#capture")).then(canvas => {
+                var link = document.createElement('a');
+                link.download = 'pandaCertificate.png';
+                link.href = canvas.toDataURL()
+                link.click();
+            });
         }
     </script>
 </body>

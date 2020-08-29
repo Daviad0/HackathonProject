@@ -1,15 +1,28 @@
 ﻿@inherits LayoutComponentBase
+@inject IJSRuntime JSRuntime;
 
-<div class="sidebar">
-    <NavMenu />
-</div>
 
-<div class="main">
+<div class="main" style="user-select:none">
     <div class="top-row px-4">
-        <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+        <span class="shadow" style="background-color:mediumseagreen;color:white;padding:5px;padding-left:10px;padding-right:10px;border-radius:6px;font-weight:600;font-family:'Century Gothic'">@((Math.Round(progress*100)).ToString()+"% a Polar Bear Wiz")</span>
     </div>
 
     <div class="content px-4">
         @Body
     </div>
 </div>
+@code{
+    public double progress = 0;
+    public async void EXPSystem()
+    {
+        var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie");
+        var cookies = result.Split("; ");
+        progress = (double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 9;
+        this.StateHasChanged();
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        EXPSystem();
+
+    }
+}

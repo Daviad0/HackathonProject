@@ -1,16 +1,20 @@
-﻿@page "/counter"
+﻿@page "/certificate"
+@inject IJSRuntime JSRuntime;
 
-<h1>Counter</h1>
+<body>
 
-<p>Current count: @currentCount</p>
+    <button class="btn btn-primary" @onclick="CanvasUwu">Click me</button>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+    <div id="capture" style="padding: 10px; background: #f5da55">
+        <h4 style="color: #000; ">Hello world!</h4>
+    </div>
+</body>
+
 
 @code {
-    private int currentCount = 0;
-
-    private void IncrementCount()
+    private async void CanvasUwu()
     {
-        currentCount++;
+        Console.WriteLine("uwu");
+        await JSRuntime.InvokeVoidAsync("AddCanvas");
     }
 }
