@@ -1,0 +1,428 @@
+﻿@page "/activity-food"
+@inject IJSRuntime JSRuntime;
+<style>
+    .flex-container {
+    display: flex;
+}
+
+.flex-child {
+    flex: 1;
+}
+    .row-full {
+        width: 100vw;
+        position: relative;
+        margin-left: -50vw;
+        height: 100px;
+        margin-top: 100px;
+        left: 50%;
+    }
+    .floating{
+        animation-name: floatinganimation;
+        animation-iteration-count: infinite;
+        animation-duration: 3s;
+        animation-timing-function: ease;
+    }
+    @@keyframes floatinganimation {
+        0% {
+            margin-top: 20px;
+        }
+
+        50% {
+            margin-top: 30px;
+        }
+
+        100% {
+            margin-top: 20px;
+        }
+    }
+    .incorrectfloating {
+        animation-name: incorrectanswer;
+        animation-iteration-count: 1;
+        animation-duration: 0.5s;
+        animation-timing-function: cubic-bezier();
+    }
+
+    @@keyframes incorrectanswer {
+        0% {
+            margin-right: 20px;
+        }
+
+        25% {
+            margin-right: 40px;
+        }
+
+        50% {
+            margin-right: 20px;
+        }
+
+        75% {
+            margin-right: 40px;
+        }
+
+        100% {
+            margin-right: 20px;
+        }
+    }
+</style>
+
+
+<div style="text-align:center;user-select:none">
+    <div style="text-align:center;display:inline-flex;width:60%">
+        <img src="images/Henry Snowy Scene.jpg" style="width:300px;border-radius:8px;display:inline-block;border:2px solid #dedede"/>
+        <div style="display:inline-block;margin-left:20px">
+            <span style="font-size:30px;font-weight:800;color:dimgray;font-family:'Century Gothic'">
+                Henry is Hungry!
+            </span>
+            <br />
+            <span style="display:inline;z-index:2;text-wrap:normal;color:dimgray;font-family:'Century Gothic'">
+                Henry and the rest of the polar bears want a nutritious meal. Today, he gets to decide what he and all his pals at the habitat get to eat, but it shouldn't be a lot of food. Help Henry decide what would be a good thing to eat for dinner with his friends!
+            </span>
+            <br />
+            <span style="z-index:2;text-wrap:normal;color:#633570;font-size:20px;font-weight:600;margin-top:10px;font-family:'Century Gothic'">
+                Choose an Option Below!
+            </span>
+        </div>
+    </div>
+</div>
+
+
+<br />
+
+<div style="text-align:center;user-select:none">
+    <div style="justify-content:space-between;display:inline-flex;width:80%;margin-bottom:20px">
+        <div @onclick="ShowDialogueA" style="background-color:#f1f1f1;display:inline-block;border-radius:8px;margin:10px;padding:40px;padding-right:60px;padding-left:60px;text-align:center;border-bottom:@(quizAnswers.GetValueOrDefault("A").currentlyAnswered? (quizAnswers.GetValueOrDefault("A").isCorrect? "3px solid green" : "3px solid red") : "3px solid #f1f1f1");cursor:pointer" class="shadow">
+            <span style="font-size:30px;font-weight:800;color:dimgray;font-family:'Century Gothic';text-align:center;">
+                Option A
+            </span>
+            <br />
+            <span style="display:inline;z-index:2;text-wrap:normal;color:dimgray;font-family:'Century Gothic'">
+                @(quizAnswers.GetValueOrDefault("A").answerText)
+            </span>
+        </div>
+        <div @onclick="ShowDialogueB" style="background-color:#f1f1f1;display:inline-block;border-radius:8px;margin:10px;padding:40px;padding-right:60px;padding-left:60px;text-align:center;border-bottom:@(quizAnswers.GetValueOrDefault("B").currentlyAnswered? (quizAnswers.GetValueOrDefault("B").isCorrect? "3px solid green" : "3px solid red") : "3px solid #f1f1f1");cursor:pointer" class="shadow">
+            <span style="font-size:30px;font-weight:800;color:dimgray;font-family:'Century Gothic';text-align:center">
+                Option B
+            </span>
+            <br />
+            <span style="display:inline;z-index:2;text-wrap:normal;color:dimgray;font-family:'Century Gothic'">
+                @(quizAnswers.GetValueOrDefault("B").answerText)
+            </span>
+        </div>
+        <div @onclick="ShowDialogueC" style="background-color:#f1f1f1;display:inline-block;border-radius:8px;margin:10px;padding:40px;padding-right:60px;padding-left:60px;text-align:center;border-bottom:@(quizAnswers.GetValueOrDefault("C").currentlyAnswered? (quizAnswers.GetValueOrDefault("C").isCorrect? "3px solid green" : "3px solid red") : "3px solid #f1f1f1");cursor:pointer" class="shadow">
+            <span style="font-size:30px;font-weight:800;color:dimgray;font-family:'Century Gothic';text-align:center">
+                Option C
+            </span>
+            <br />
+            <span style="display:inline;z-index:2;text-wrap:normal;color:dimgray;font-family:'Century Gothic'">
+                @(quizAnswers.GetValueOrDefault("C").answerText)
+            </span>
+        </div>
+        <div @onclick="ShowDialogueD" style="background-color:#f1f1f1;display:inline-block;border-radius:8px;margin:10px;padding:40px;padding-right:60px;padding-left:60px;text-align:center;border-bottom:@(quizAnswers.GetValueOrDefault("D").currentlyAnswered? (quizAnswers.GetValueOrDefault("D").isCorrect? "3px solid green" : "3px solid red") : "3px solid #f1f1f1");cursor:pointer" class="shadow">
+            <span style="font-size:30px;font-weight:800;color:dimgray;font-family:'Century Gothic';text-align:center">
+                Option D
+            </span>
+            <br />
+            <span style="display:inline;z-index:2;text-wrap:normal;color:dimgray;font-family:'Century Gothic'">
+                @(quizAnswers.GetValueOrDefault("D").answerText)
+            </span>
+        </div>
+    </div>
+    <div style="background-color:#ffffff;width:80%;display:@(answerDialogue1? "inline-block" : "none");padding:30px;border-radius:8px;margin:20px;text-align:left;opacity:@(answerDialogue1? "1" : "0");border-top:3px solid red" class="@answerDialogueClass">
+        <span style="color:red;font-size:30px;font-family:'Century Gothic';font-weight:700">
+            Not Quite...
+        </span>
+        <br />
+        <span style="text-wrap:normal;font-family:'Century Gothic'">
+            Chocolate is very tasty for humans, but can be very dangerous for polar bears! Just like how cats and dogs should not eat chocolate, polar bears should not for the exact same reason. Chocolate has a chemical called <strong>theobromine</strong>, which is very dangerous to animals when they have a lot of it. Not only can this cause illnesses, but it can be deadly if too much is consumed.
+        </span>
+    </div>
+    <div style="background-color:#ffffff;width:80%;display:@(answerDialogue2? "inline-block" : "none");padding:30px;border-radius:8px;margin:20px;text-align:left;opacity:@(answerDialogue2? "1" : "0");border-top:3px solid red" class="@answerDialogueClass">
+        <span style="color:red;font-size:30px;font-family:'Century Gothic';font-weight:700">
+            Nice Try...
+        </span>
+        <br />
+        <span style="text-wrap:normal;font-family:'Century Gothic'">
+            Henry loves moose meat, but some of his fellow hab-mates do not. Along with that, moose meat may be a lot of food for them to eat. Remember, Henry is trying to pick a dinner for him and his friends to eat that is tasty to all of them and very nutricious!
+        </span>
+    </div>
+    <div style="background-color:#ffffff;width:80%;display:@(answerDialogue3? "inline-block" : "none");padding:30px;border-radius:8px;margin:20px;text-align:left;opacity:@(answerDialogue3? "1" : "0");border-top:3px solid red" class="@answerDialogueClass">
+        <span style="color:red;font-size:30px;font-family:'Century Gothic';font-weight:700">
+            Almost There...
+        </span>
+        <br />
+        <span style="text-wrap:normal;font-family:'Century Gothic'">
+            Seal blubber is a huge favorite shared by Henry and all of his hab-mates. Unfortunately for them, the Animal Care Team is trying to keep them as healthy as possible, especially as the temperatures are rising. Eating foods that have a lot of calories may cause them to get bigger and warmer as the summer days go along. Try to find something that is filling, nutricious, not a lot of calories, and a favorite among all of the bears.
+        </span>
+    </div>
+    <div style="background-color:#ffffff;width:80%;display:@(answerDialogue4? "inline-block" : "none");padding:30px;border-radius:8px;margin:20px;text-align:left;opacity:@(answerDialogue4? "1" : "0");border-top:3px solid green" class="@answerDialogueClass">
+        <span style="color:green;font-size:30px;font-family:'Century Gothic';font-weight:700">
+            You Got It!
+        </span>
+        <br />
+        <span style="text-wrap:normal;font-family:'Century Gothic'">
+            Henry and his pals are thankful for your help! Thanks to you, they can now have a filling, nutricious, dietary, and tasty meal with the approval of the Animal Care Team.
+        </span>
+        <br />
+        <hr />
+        <span style="color:green;font-size:30px;font-family:'Century Gothic';font-weight:700">
+            Why Watermelon?
+        </span>
+        <br />
+        <span style="text-wrap:normal;font-family:'Century Gothic'">
+            The Animal Care Team wants to make sure that the polar bears feel as natural as possible. In the wild, polar bears are sometimes unable to find prey for months. With the lack of food, most polar bears go without food for a while and sometimes look for fruits and vegetables. At the habitat, fruits and vegetables also allow Henry and his pals to gain the proper nutrients while being able to slim down for warmer months to keep cool. It also has the added benefit of making the bears feel like they are full without having to eat seal blubber or horse meat along with the natural produce. Watermelon just happens to be the favorite for the polar bears! <strong>What a good reason to eat your fruits and vegetables during dinner!</strong>
+        </span>
+    </div>
+</div>
+
+
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        var qarray = new string[4] { "A", "B", "C", "D" };
+        var numiterations = new Random().Next(3, 10);
+        var randomnumgen = new Random();
+        for(int i = numiterations; i > 0; i--)
+        {
+            var pos1 = randomnumgen.Next(0, 4);
+            var pos2 = randomnumgen.Next(0, 4);
+            var pos1value = qarray[pos1];
+            var pos2value = qarray[pos2];
+            qarray[pos1] = pos2value;
+            qarray[pos2] = pos1value;
+        }
+        quizAnswers = new Dictionary<string, QuizAnswer>() {
+            { qarray[0], new QuizAnswer() { isCorrect = false, answerText = "Chocolate", answerDialogue = 1 } },
+            { qarray[1], new QuizAnswer() { isCorrect = false, answerText = "Moose Meat", answerDialogue = 2 } },
+            { qarray[2], new QuizAnswer() { isCorrect = true, answerText = "Watermelons", answerDialogue = 4 } },
+            { qarray[3], new QuizAnswer() { isCorrect = false, answerText = "Seal Blubber", answerDialogue = 3 } },
+
+        };
+    }
+    private Dictionary<string, QuizAnswer> quizAnswers = new Dictionary<string, QuizAnswer>() {
+        { "A", new QuizAnswer() { isCorrect = false, answerText = "A1", answerDialogue = 1 } },
+        { "B", new QuizAnswer() { isCorrect = false, answerText = "A2", answerDialogue = 2 } },
+        { "C", new QuizAnswer() { isCorrect = true, answerText = "A3", answerDialogue = 4 } },
+        { "D", new QuizAnswer() { isCorrect = false, answerText = "A4", answerDialogue = 3 } },
+    };
+    private bool answerDialogue1 = false;
+    private bool answerDialogue2 = false;
+    private bool answerDialogue3 = false;
+    private bool answerDialogue4 = false;
+    public string answerDialogueClass = "shadow";
+
+    private async void ShowDialogueA()
+    {
+        if (!answerDialogueClass.Contains("incorrect"))
+        {
+            switch (quizAnswers.GetValueOrDefault("A").answerDialogue)
+            {
+                case 1:
+                    answerDialogue2 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = false;
+                    answerDialogue1 = true;
+                    break;
+                case 2:
+                    answerDialogue1 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = false;
+                    answerDialogue2 = true;
+                    break;
+                case 3:
+                    answerDialogue1 = false;
+                    answerDialogue2 = false;
+                    answerDialogue4 = false;
+                    answerDialogue3 = true;
+                    break;
+                case 4:
+                    answerDialogue1 = false;
+                    answerDialogue2 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = true;
+                    break;
+            }
+            quizAnswers.GetValueOrDefault("B").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("C").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("D").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("A").currentlyAnswered = true;
+            if (!quizAnswers.GetValueOrDefault("A").isCorrect)
+            {
+                answerDialogueClass = "shadow floating incorrectfloating";
+                await Task.Delay(500);
+                answerDialogueClass = "shadow floating";
+            }
+            else
+            {
+                CompletedAddCookie();
+            }
+        }
+
+    }
+    private async void ShowDialogueB()
+    {
+        if (!answerDialogueClass.Contains("incorrect"))
+        {
+            switch (quizAnswers.GetValueOrDefault("B").answerDialogue)
+            {
+                case 1:
+                    answerDialogue2 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = false;
+                    answerDialogue1 = true;
+                    break;
+                case 2:
+                    answerDialogue1 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = false;
+                    answerDialogue2 = true;
+                    break;
+                case 3:
+                    answerDialogue1 = false;
+                    answerDialogue2 = false;
+                    answerDialogue4 = false;
+                    answerDialogue3 = true;
+                    break;
+                case 4:
+                    answerDialogue1 = false;
+                    answerDialogue2 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = true;
+                    break;
+            }
+            quizAnswers.GetValueOrDefault("A").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("C").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("D").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("B").currentlyAnswered = true;
+            if (!quizAnswers.GetValueOrDefault("B").isCorrect)
+            {
+                answerDialogueClass = "shadow floating incorrectfloating";
+                await Task.Delay(500);
+                answerDialogueClass = "shadow floating";
+            }
+            else
+            {
+                CompletedAddCookie();
+            }
+        }
+
+    }
+    private async void ShowDialogueC()
+    {
+        if (!answerDialogueClass.Contains("incorrect"))
+        {
+            switch (quizAnswers.GetValueOrDefault("C").answerDialogue)
+            {
+                case 1:
+                    answerDialogue2 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = false;
+                    answerDialogue1 = true;
+                    break;
+                case 2:
+                    answerDialogue1 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = false;
+                    answerDialogue2 = true;
+                    break;
+                case 3:
+                    answerDialogue1 = false;
+                    answerDialogue2 = false;
+                    answerDialogue4 = false;
+                    answerDialogue3 = true;
+                    break;
+                case 4:
+                    answerDialogue1 = false;
+                    answerDialogue2 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = true;
+                    break;
+            }
+            quizAnswers.GetValueOrDefault("A").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("B").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("D").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("C").currentlyAnswered = true;
+            if (!quizAnswers.GetValueOrDefault("C").isCorrect)
+            {
+                answerDialogueClass = "shadow floating incorrectfloating";
+                await Task.Delay(500);
+                answerDialogueClass = "shadow floating";
+            }
+            else
+            {
+                CompletedAddCookie();
+            }
+        }
+
+    }
+    private async void ShowDialogueD()
+    {
+        if (!answerDialogueClass.Contains("incorrect"))
+        {
+            switch (quizAnswers.GetValueOrDefault("D").answerDialogue)
+            {
+                case 1:
+                    answerDialogue2 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = false;
+                    answerDialogue1 = true;
+                    break;
+                case 2:
+                    answerDialogue1 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = false;
+                    answerDialogue2 = true;
+                    break;
+                case 3:
+                    answerDialogue1 = false;
+                    answerDialogue2 = false;
+                    answerDialogue4 = false;
+                    answerDialogue3 = true;
+                    break;
+                case 4:
+                    answerDialogue1 = false;
+                    answerDialogue2 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = true;
+                    break;
+            }
+            quizAnswers.GetValueOrDefault("A").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("B").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("C").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("D").currentlyAnswered = true;
+            if (!quizAnswers.GetValueOrDefault("D").isCorrect)
+            {
+                answerDialogueClass = "shadow floating incorrectfloating";
+                await Task.Delay(500);
+                answerDialogueClass = "shadow floating";
+            }
+            else
+            {
+                
+                CompletedAddCookie();
+                
+            }
+        }
+
+    }
+    public async void CompletedAddCookie()
+    {
+        var test = await JSRuntime.InvokeAsync<string>("blazorExtensions.WriteCookie", "quizCompleted-food", "true", 5);
+        var test2 = await JSRuntime.InvokeAsync<string>("blazorExtensions.WriteCookie", "quizCompleted-uwu", "true", 5);
+        FindCookies();
+    }
+    public async void FindCookies()
+    {
+        var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie", "quizCompleted-food", "true", 5);
+        var cookies = result.Split("; ");
+        Console.WriteLine(cookies);
+
+    }
+    public class QuizAnswer
+    {
+        public bool isCorrect { get; set; }
+        public string answerText { get; set; }
+        public int answerDialogue { get; set; }
+        public bool currentlyAnswered { get; set; }
+    }
+}

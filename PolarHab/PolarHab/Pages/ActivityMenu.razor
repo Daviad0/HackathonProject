@@ -1,0 +1,70 @@
+﻿@page "/menu"
+@inject IJSRuntime JSRuntime;
+
+
+<style>
+    .activity{
+        background-color:#f1f1f1;
+        transition: background-color 0.5s;
+    }
+    .activity:hover{
+        background-color:#e1e1e1;
+    }
+</style>
+
+<div style="user-select:none">
+    <div class="shadow" style="width:80%;padding:20px;border-radius:8px">
+        <span style="font-size:30px;font-family:'Century Gothic';font-weight:700">
+            Multiple Choice Exploration
+        </span>
+        <br />
+        <span style="text-wrap:normal;font-family:'Century Gothic'">
+            Learn some cool facts about polar bears with mini questions!
+        </span>
+    </div>
+    <br />
+    <div onclick="location.href='/activity-food'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px">
+        <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
+            Henry is Hungry <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("quizCompleted-food=true")? "inline" : "none")">Completed</span>
+        </span>
+    </div>
+    <br />
+    <div class="shadow" style="width:80%;padding:20px;border-radius:8px">
+        <span style="font-size:30px;font-family:'Century Gothic';font-weight:700">
+            Matching Game
+        </span>
+        <br />
+        <span style="text-wrap:normal;font-family:'Century Gothic'">
+            See the 4 polar bears of the Canadian Polar Bear Habitat while testing your memory.
+        </span>
+    </div>
+    <br />
+    <div class="shadow" style="width:80%;padding:20px;border-radius:8px">
+        <span style="font-size:30px;font-family:'Century Gothic';font-weight:700">
+            Downloadable Content
+        </span>
+        <br />
+        <span style="text-wrap:normal;font-family:'Century Gothic'">
+            Print these out and learn about the wonders of polar bears!
+        </span>
+    </div>
+</div>
+
+
+
+
+@code {
+    private string[] activityCookies = new string[1] { "uwu" };
+    public async void GetCookies()
+    {
+        var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie", "quizCompleted-food", "true", 5);
+        var cookies = result.Split("; ");
+        activityCookies = cookies;
+        Console.WriteLine(cookies);
+        this.StateHasChanged();
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        GetCookies();
+    }
+}
