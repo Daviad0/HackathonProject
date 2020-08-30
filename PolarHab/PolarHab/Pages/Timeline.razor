@@ -8,8 +8,12 @@
 
 * {
   box-sizing: border-box;
+  box-color: #d8eobb;
 }
-
+    nav {
+        background-color: #333;
+        border-radius: 15px 15px 0px 0px;
+    }
 
 /* list of pages */
         nav ul {
@@ -17,6 +21,7 @@
             padding: 0;
             list-style: none;
             text-align: center;
+            z-index: 1;
         }
 /* nav list items */
         nav li {
@@ -31,7 +36,7 @@
         nav a {
             color: white;
             text-decoration: none;
-            font-family: 'Century Gothic';
+            font-family: 'Century Gothic',Tahoma;
             font-size: 20px;
             transition: letter-spacing 0.5s;
         }
@@ -51,12 +56,12 @@
                 position: fixed;
                 width: 0%;
                 top: 0px;
-                left:0px;
                 transition: all ease-in-out 250ms;
+                margin-top: 74px;
             }
 /* nav top line active */
             nav a:hover::before {
-                width: 95%;
+                width: 6%;
             }
 
 /* Header/logo Title */
@@ -65,6 +70,9 @@
   background: #86a3c3;
   color: white;
   height: 100;
+  border-radius: 0px 0px 15px 15px;
+  padding-bottom: 50px;
+  padding-top: 50px;
 }
 
 /* Increase the font size of the heading */
@@ -168,14 +176,14 @@
   .timeline::after {
   left: 31px;
   }
-  
+ 
   /* Full-width containers */
   .container {
   width: 100%;
   padding-left: 70px;
   padding-right: 25px;
   }
-  
+ 
   /* Make sure that all arrows are pointing leftwards */
   .container::before {
   left: 60px;
@@ -188,7 +196,7 @@
   .left::after, .right::after {
   left: 15px;
   }
-  
+ 
   /* Make all right containers behave like the left ones */
   .right {
   left: 0%;
@@ -201,12 +209,13 @@
 
 <nav>
     <ul>
-        <li><a href="https://localhost:44370/">Home</a></li>
-        <li><a href="https://localhost:44370/menu">Activities</a></li>
-        <li><a href="https://localhost:44370/climate">About Climate Change</a></li>
-        <li><a href="https://localhost:44370/videos">More Videos</a></li>
-        <li><a href="https://localhost:44370/timeline">Timeline</a></li>
-        <li><a href="https://localhost:44370/about">About</a></li>
+         <li><a href="/">Home</a></li>
+            <li><a href="/menu">Activities</a></li>
+            <li><a href="/climate">About Climate Change</a></li>
+            <li><a href="/videos">More Videos</a></li>
+            <li><a href="/timeline">Timeline</a></li>
+            <li><a href="/bearnames">The Bears</a></li>
+            <li><a href="/about">About</a></li>
     </ul>
 </nav>
 
@@ -217,34 +226,34 @@
 <div class="timeline">
   <div class="container left">
     <div class="content">
-      <h2>Spring- March, April, May, June</h2>
-      <p>Between April and late June, the snow starts to melt and the snow starts to gradually become longer and longer. Adult male polar bears start looking for mates; adult males usually reach sexual maturity between the ages of 6 and 10. Females reach secual maturity between the ages of 4 and 6, but female polar bears usually give birth every three years. This leads to a greater number of males than females participating during mating season. Adult males usually stay with the female for a couple of days before leaving. While mating happens during the spring season, the fertilized egg does not actually implant until fall. This is due to a process called delayed implantation. Fertilized eggs will only implant if the female has sufficient fat to sustain both herself and her cubs during denning season.
+      <h2 style="font-family:'Century Gothic',Tahoma;font-weight:700">Spring- March, April, May, June</h2>
+      <p style="font-family:'Century Gothic',Tahoma">Between April and late June, the snow starts to melt and the snow starts to gradually become longer and longer. Adult male polar bears start looking for mates; adult males usually reach sexual maturity between the ages of 6 and 10. Females reach sexual maturity between the ages of 4 and 6, but female polar bears usually give birth every three years. This leads to a greater number of males than females participating during mating season. Adult males usually stay with the female for a couple of days before leaving. While mating happens during the spring season, the fertilized egg does not actually implant until fall. This is due to a process called delayed implantation. Fertilized eggs will only implant if the female has sufficient fat to sustain both herself and her cubs during denning season.
 </p>
     </div>
   </div>
   <div class="container right">
     <div class="content">
-      <h2>Fall/Early Winter- Sept, Oct, Nov</h2>
-      <p> This period of time is called denning season. A pregnant female will start building a maternity den for her cubs after feeding through summer and fall. She will give birth and nurse her cubs here. Pregnant polar bears usually create dens in snow drifts in coastal and river bluffs, hills near sea ice, or in banks of snow along the frozen sea. The pregnant polar bear will then create a small snow cave in her desired location. It’s usually only big enough for her to turn around. She will then wait for the snow to completely cover the entrance. 
+      <h2 style="font-family:'Century Gothic',Tahoma;font-weight:700">Fall/Early Winter- Sept, Oct, Nov</h2>
+      <p style="font-family:'Century Gothic',Tahoma"> This period of time is called denning season. A pregnant female will start building a maternity den for her cubs after feeding through summer and fall. She will give birth and nurse her cubs here. Pregnant polar bears usually create dens in snow drifts in coastal and river bluffs, hills near sea ice, or in banks of snow along the frozen sea. The pregnant polar bear will then create a small snow cave in her desired location. It’s usually only big enough for her to turn around. She will then wait for the snow to completely cover the entrance.
 </p>
     </div>
   </div>
   <div class="container left">
     <div class="content">
-      <h2>Winter- Dec, Jan, Feb</h2>
-      <p>Most cubs are born during December. A pregnant mother will usually give birth to 1, 2, or 3 cubs. Twins are the most common. She will not usually eat or drink anything during this time. All of her time and energy will be put into her cubs. Newborn cubs are completely dependent on their mother as they are usually blind, toothless, and are only covered with a short covering of fur. The mothers will nurse for up to 20 weeks. During this time the cubs will grow rapidly. </p>
+      <h2 style="font-family:'Century Gothic',Tahoma;font-weight:700">Winter- Dec, Jan, Feb</h2>
+      <p style="font-family:'Century Gothic',Tahoma">Most cubs are born during December. A pregnant mother will usually give birth to 1, 2, or 3 cubs. Twins are the most common. She will not usually eat or drink anything during this time. All of her time and energy will be put into her cubs. Newborn cubs are completely dependent on their mother as they are usually blind, toothless, and are only covered with a short covering of fur. The mothers will nurse for up to 20 weeks. During this time the cubs will grow rapidly. </p>
     </div>
   </div>
   <div class="container right">
     <div class="content">
-      <h2>Early Spring- Mar, Apr </h2>
-      <p>The mother and her cubs usually emerge from their dens sometime during March or April. By this time, the cubs are able to defend themselves against almost anything that may try to harm them. The family of polar bears now make their way towards the sea ice. The mother now starts teaching her cubs hope to survive in the Arctic. Cubs usually spend 2 ½ years with their mother before they part ways. The cubs grow up and the cycle continues as the mother participates in mating season once again.</p>
+      <h2 style="font-family:'Century Gothic',Tahoma;font-weight:700">Early Spring- Mar, Apr </h2>
+      <p style="font-family:'Century Gothic',Tahoma">The mother and her cubs usually emerge from their dens sometime during March or April. By this time, the cubs are able to defend themselves against almost anything that may try to harm them. The family of polar bears now make their way towards the sea ice. The mother now starts teaching her cubs how to survive in the Arctic. Cubs usually spend 2 ½ years with their mother before they part ways. The cubs grow up and the cycle continues as the mother participates in mating season once again.</p>
     </div>
   </div>
   <div class="container left">
     <div class="content">
-      <h2>Summer- Jul, Aug, Sept</h2>
-      <p>This time is the least busy time of the year for the Polar Bears. Their main objective is just to feed and survive. </p>
+      <h2 style="font-family:'Century Gothic',Tahoma;font-weight:700">Summer- Jul, Aug, Sept</h2>
+      <p style="font-family:'Century Gothic',Tahoma">This time is the least busy time of the year for the Polar Bears. Their main objective is just to feed and survive. </p>
     </div>
   </div>
 </div>

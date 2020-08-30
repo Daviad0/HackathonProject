@@ -1,0 +1,111 @@
+﻿@page "/ar"
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  font-family: 'Century Gothic';
+  margin: 0;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 40px;
+}
+
+    nav {
+        background-color: #333;
+    }
+
+/* list of pages */
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+            z-index: 1;
+        }
+/* nav list items */
+        nav li {
+            display: inline-block;
+            margin-left: 70px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            position: relative;
+            transition: letter-spacing 0.5s;
+        }
+/* nav text */
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Century Gothic',Tahoma;
+            font-size: 20px;
+            transition: letter-spacing 0.5s;
+        }
+ /* nav active */
+            nav a:hover {
+                letter-spacing: 1px;
+                transition: all ease-in-out 250ms;
+                color: white;
+                text-decoration: none;
+            }
+/* nav top line */
+            nav a::before {
+                content: '';
+                display: block;
+                height: 5px;
+                background-color: white;
+                position: fixed;
+                width: 0%;
+                top: 0px;
+                transition: all ease-in-out 250ms;
+                margin-top: 74px;
+            }
+/* nav top line active */
+            nav a:hover::before {
+                width: 6%;
+            }
+
+/* Main column */
+.main {   
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  background-color: white;
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+    <ul>
+         <li><a href="/">Home</a></li>
+            <li><a href="/menu">Activities</a></li>
+            <li><a href="/climate">About Climate Change</a></li>
+            <li><a href="/videos">More Videos</a></li>
+            <li><a href="/timeline">Timeline</a></li>
+            <li><a href="/bearnames">The Bears</a></li>
+            <li><a href="/about">About</a></li>
+    </ul>
+</nav>
+
+  <div class="main">
+    <p></p>
+    <br>
+  </div>
+
+<div style="text-align:center">
+    <iframe src="https://console.echoAR.xyz/webar?key=throbbing-lab-6963&entry=b0e81667-4550-4948-9fc5-3fcaf085361a" style="height:700px;width:1200px;border:4px solid #dedede;border-radius:8px;display:inline-block;">
+    </iframe>
+    </div>
+
+</body>
+</html>

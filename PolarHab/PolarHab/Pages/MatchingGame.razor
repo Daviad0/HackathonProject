@@ -2,7 +2,7 @@
 @inject IJSRuntime JSRuntime;
 
 <div style="text-align:center">
-    <span style="font-size:40px;font-family:'Century Gothic';margin-bottom:10px;font-weight:700">Memory Matching</span>
+    <span style="font-size:40px;font-family:'Century Gothic',Tahoma;margin-bottom:10px;font-weight:700">Memory Matching</span>
     <br />
     <div style="text-align:center;display:inline-block">
         <table style="width:100%;display:inline-block">
@@ -10,62 +10,62 @@
                 <td style="width:20%;padding:10px">
                     <div @onclick="(() => FlipCard(0))">
                         <div style="width:160px;height:120px;border-radius:6px;display:@((allCards[0].CardState == CardState.NotSelected)? "inline-block": "none");background-color:#37393f;text-align:center">
-                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic'">1</span>
+                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic',Tahoma">1</span>
                         </div>
                         <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[0].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[0].CardState == CardState.Selected) || (allCards[0].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[0].ImageSRC)"/>
 
                         <br />
-                        @*<span style="font-family:'Century Gothic';background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[0].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[0].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[0].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
+                        @*<span style="font-family:'Century Gothic',Tahoma;background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[0].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[0].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[0].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
                     </div>
                 </td>
                 <td style="width:20%;padding:10px">
                     <div @onclick="(() => FlipCard(1))">
                         <div style="width:160px;height:120px;border-radius:6px;display:@((allCards[1].CardState == CardState.NotSelected)? "inline-block": "none");background-color:#37393f;text-align:center">
-                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic'">2</span>
+                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic',Tahoma">2</span>
                         </div>
                         <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[1].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[1].CardState == CardState.Selected) || (allCards[1].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[1].ImageSRC)"/>
                         <br />
-                        @*<span style="font-family:'Century Gothic';background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[1].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[1].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[1].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
+                        @*<span style="font-family:'Century Gothic',Tahoma;background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[1].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[1].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[1].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
                     </div>
                 </td>
                 <td style="width:20%;padding:10px">
                     <div @onclick="(() => FlipCard(2))">
                         <div style="width:160px;height:120px;border-radius:6px;display:@((allCards[2].CardState == CardState.NotSelected)? "inline-block": "none");background-color:#37393f;text-align:center">
-                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic'">3</span>
+                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic',Tahoma">3</span>
                         </div>
                         <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[2].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[2].CardState == CardState.Selected) || (allCards[2].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[2].ImageSRC)"/>
                         <br />
-                        @*<span style="font-family:'Century Gothic';background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[2].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[2].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[2].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
+                        @*<span style="font-family:'Century Gothic',Tahoma;background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[2].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[2].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[2].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
                     </div>
                 </td>
                 <td style="width:20%;padding:10px">
                     <div @onclick="(() => FlipCard(3))">
                         <div style="width:160px;height:120px;border-radius:6px;display:@((allCards[3].CardState == CardState.NotSelected)? "inline-block": "none");background-color:#37393f;text-align:center">
-                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic'">4</span>
+                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic',Tahoma">4</span>
                         </div>
                         <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[3].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[3].CardState == CardState.Selected) || (allCards[3].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[3].ImageSRC)"/>
                         <br />
-                        @*<span style="font-family:'Century Gothic';background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[3].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[3].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[3].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
+                        @*<span style="font-family:'Century Gothic',Tahoma;background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[3].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[3].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[3].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
                     </div>
                 </td>
                 <td style="width:20%;padding:10px">
                     <div @onclick="(() => FlipCard(4))">
                         <div style="width:160px;height:120px;border-radius:6px;display:@((allCards[4].CardState == CardState.NotSelected)? "inline-block": "none");background-color:#37393f;text-align:center">
-                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic'">5</span>
+                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic',Tahoma">5</span>
                         </div>
                         <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[4].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[4].CardState == CardState.Selected) || (allCards[4].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[4].ImageSRC)"/>
                         <br />
-                        @*<span style="font-family:'Century Gothic';background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[4].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[4].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[4].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
+                        @*<span style="font-family:'Century Gothic',Tahoma;background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[4].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[4].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[4].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
                     </div>
                 </td>
             </tr>
@@ -73,61 +73,61 @@
                 <td style="width:20%;padding:10px">
                     <div @onclick="(() => FlipCard(5))">
                         <div style="width:160px;height:120px;border-radius:6px;display:@((allCards[5].CardState == CardState.NotSelected)? "inline-block": "none");background-color:#37393f;text-align:center">
-                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic'">6</span>
+                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic',Tahoma">6</span>
                         </div>
                         <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[5].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[5].CardState == CardState.Selected) || (allCards[5].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[5].ImageSRC)"/>
                         <br />
-                        @*<span style="font-family:'Century Gothic';background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[5].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[5].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[5].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
+                        @*<span style="font-family:'Century Gothic',Tahoma;background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[5].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[5].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[5].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
                     </div>
                 </td>
                 <td style="width:20%;padding:10px">
                     <div @onclick="(() => FlipCard(6))">
                         <div style="width:160px;height:120px;border-radius:6px;display:@((allCards[6].CardState == CardState.NotSelected)? "inline-block": "none");background-color:#37393f;text-align:center">
-                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic'">7</span>
+                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic',Tahoma">7</span>
                         </div>
                         <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[6].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[6].CardState == CardState.Selected) || (allCards[6].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[6].ImageSRC)"/>
                         <br />
-                        @*<span style="font-family:'Century Gothic';background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[6].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[6].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[6].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
+                        @*<span style="font-family:'Century Gothic',Tahoma;background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[6].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[6].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[6].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
                     </div>
                 </td>
                 <td style="width:20%;padding:10px">
                     <div @onclick="(() => FlipCard(7))">
                         <div style="width:160px;height:120px;border-radius:6px;display:@((allCards[7].CardState == CardState.NotSelected)? "inline-block": "none");background-color:#37393f;text-align:center">
-                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic'">8</span>
+                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic',Tahoma">8</span>
                         </div>
                         <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[7].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[7].CardState == CardState.Selected) || (allCards[7].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[7].ImageSRC)"/>
                         <br />
-                        @*<span style="font-family:'Century Gothic';background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[7].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[7].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[7].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
+                        @*<span style="font-family:'Century Gothic',Tahoma;background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[7].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[7].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[7].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
                     </div>
                 </td>
                 <td style="width:20%;padding:10px">
                     <div @onclick="(() => FlipCard(8))">
                         <div style="width:160px;height:120px;border-radius:6px;display:@((allCards[8].CardState == CardState.NotSelected)? "inline-block": "none");background-color:#37393f;text-align:center">
-                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic'">9</span>
+                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic',Tahoma">9</span>
                         </div>
                         <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[8].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[8].CardState == CardState.Selected) || (allCards[8].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[8].ImageSRC)"/>
                         <br />
-                        @*<span style="font-family:'Century Gothic';background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[8].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[8].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[8].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
+                        @*<span style="font-family:'Century Gothic',Tahoma;background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[8].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[8].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[8].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
                     </div>
                 </td>
                 <td style="width:20%;padding:10px">
                     <div @onclick="(() => FlipCard(9))">
                         <div style="width:160px;height:120px;border-radius:6px;display:@((allCards[9].CardState == CardState.NotSelected)? "inline-block": "none");background-color:#37393f;text-align:center">
-                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic'">10</span>
+                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic',Tahoma">10</span>
                         </div>
                         <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[9].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[9].CardState == CardState.Selected) || (allCards[9].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[9].ImageSRC)"/>
                         <br />
-                        @*<span style="font-family:'Century Gothic';background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[9].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[9].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[9].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
+                        @*<span style="font-family:'Century Gothic',Tahoma;background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[9].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[9].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[9].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
                     </div>
                 </td>
             </tr>
@@ -135,61 +135,61 @@
                 <td style="width:20%;padding:10px">
                     <div @onclick="(() => FlipCard(10))">
                         <div style="width:160px;height:120px;border-radius:6px;display:@((allCards[10].CardState == CardState.NotSelected)? "inline-block": "none");background-color:#37393f;text-align:center">
-                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic'">11</span>
+                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic',Tahoma">11</span>
                         </div>
                         <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[10].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[10].CardState == CardState.Selected) || (allCards[10].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[10].ImageSRC)"/>
                         <br />
-                        @*<span style="font-family:'Century Gothic';background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[10].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[10].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[10].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
+                        @*<span style="font-family:'Century Gothic',Tahoma;background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[10].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[10].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[10].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
                     </div>
                 </td>
                 <td style="width:20%;padding:10px">
                     <div @onclick="(() => FlipCard(11))">
                         <div style="width:160px;height:120px;border-radius:6px;display:@((allCards[11].CardState == CardState.NotSelected)? "inline-block": "none");background-color:#37393f;text-align:center">
-                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic'">12</span>
+                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic',Tahoma">12</span>
                         </div>
                         <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[11].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[11].CardState == CardState.Selected) || (allCards[11].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[11].ImageSRC)"/>
                         <br />
-                        @*<span style="font-family:'Century Gothic';background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[11].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[11].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[11].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
+                        @*<span style="font-family:'Century Gothic',Tahoma;background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[11].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[11].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[11].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
                     </div>
                 </td>
                 <td style="width:20%;padding:10px">
                     <div @onclick="(() => FlipCard(12))">
                         <div style="width:160px;height:120px;border-radius:6px;display:@((allCards[12].CardState == CardState.NotSelected)? "inline-block": "none");background-color:#37393f;text-align:center">
-                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic'">13</span>
+                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic',Tahoma">13</span>
                         </div>
                         <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[12].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[12].CardState == CardState.Selected) || (allCards[12].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[12].ImageSRC)"/>
                         <br />
-                        @*<span style="font-family:'Century Gothic';background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[12].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[12].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[12].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
+                        @*<span style="font-family:'Century Gothic',Tahoma;background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[12].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[12].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[12].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
                     </div>
                 </td>
                 <td style="width:20%;padding:10px">
                     <div @onclick="(() => FlipCard(13))">
                         <div style="width:160px;height:120px;border-radius:6px;display:@((allCards[13].CardState == CardState.NotSelected)? "inline-block": "none");background-color:#37393f;text-align:center">
-                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic'">14</span>
+                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic',Tahoma">14</span>
                         </div>
                         <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[13].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[13].CardState == CardState.Selected) || (allCards[13].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[13].ImageSRC)"/>
                         <br />
-                        @*<span style="font-family:'Century Gothic';background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[13].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[13].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[13].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
+                        @*<span style="font-family:'Century Gothic',Tahoma;background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[13].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[13].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[13].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
                     </div>
                 </td>
                 <td style="width:20%;padding:10px">
                     <div @onclick="(() => FlipCard(14))">
                         <div style="width:160px;height:120px;border-radius:6px;display:@((allCards[14].CardState == CardState.NotSelected)? "inline-block": "none");background-color:#37393f;text-align:center">
-                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic'">15</span>
+                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic',Tahoma">15</span>
                         </div>
                         <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[14].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[14].CardState == CardState.Selected) || (allCards[14].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[14].ImageSRC)"/>
                         <br />
-                        @*<span style="font-family:'Century Gothic';background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[14].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[14].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[14].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
+                        @*<span style="font-family:'Century Gothic',Tahoma;background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[14].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[14].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[14].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
                     </div>
                 </td>
             </tr>
@@ -197,61 +197,61 @@
                 <td style="width:20%;padding:10px">
                     <div @onclick="(() => FlipCard(15))">
                         <div style="width:160px;height:120px;border-radius:6px;display:@((allCards[15].CardState == CardState.NotSelected)? "inline-block": "none");background-color:#37393f;text-align:center">
-                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic'">16</span>
+                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic',Tahoma">16</span>
                         </div>
                         <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[15].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[15].CardState == CardState.Selected) || (allCards[15].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[15].ImageSRC)"/>
                         <br />
-                        @*<span style="font-family:'Century Gothic';background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[15].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[15].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[15].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
+                        @*<span style="font-family:'Century Gothic',Tahoma;background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[15].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[15].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[15].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
                     </div>
                 </td>
                 <td style="width:20%;padding:10px">
                     <div @onclick="(() => FlipCard(16))">
                         <div style="width:160px;height:120px;border-radius:6px;display:@((allCards[16].CardState == CardState.NotSelected)? "inline-block": "none");background-color:#37393f;text-align:center">
-                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic'">17</span>
+                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic',Tahoma">17</span>
                         </div>
                         <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[16].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[16].CardState == CardState.Selected) || (allCards[16].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[16].ImageSRC)"/>
                         <br />
-                        @*<span style="font-family:'Century Gothic';background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[16].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[16].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[16].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
+                        @*<span style="font-family:'Century Gothic',Tahoma;background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[16].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[16].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[16].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
                     </div>
                 </td>
                 <td style="width:20%;padding:10px">
                     <div @onclick="(() => FlipCard(17))">
                         <div style="width:160px;height:120px;border-radius:6px;display:@((allCards[17].CardState == CardState.NotSelected)? "inline-block": "none");background-color:#37393f;text-align:center">
-                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic'">18</span>
+                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic',Tahoma">18</span>
                         </div>
                         <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[17].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[17].CardState == CardState.Selected) || (allCards[17].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[17].ImageSRC)"/>
                         <br />
-                        @*<span style="font-family:'Century Gothic';background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[17].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[17].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[17].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
+                        @*<span style="font-family:'Century Gothic',Tahoma;background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[17].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[17].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[17].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
                     </div>
                 </td>
                 <td style="width:20%;padding:10px">
                     <div @onclick="(() => FlipCard(18))">
                         <div style="width:160px;height:120px;border-radius:6px;display:@((allCards[18].CardState == CardState.NotSelected)? "inline-block": "none");background-color:#37393f;text-align:center">
-                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic'">19</span>
+                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic',Tahoma">19</span>
                         </div>
                         <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[18].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[18].CardState == CardState.Selected) || (allCards[18].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[18].ImageSRC)"/>
                         <br />
-                        @*<span style="font-family:'Century Gothic';background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[18].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[18].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[18].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
+                        @*<span style="font-family:'Century Gothic',Tahoma;background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[18].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[18].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[18].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
                     </div>
                 </td>
                 <td style="width:20%;padding:10px">
                     <div @onclick="(() => FlipCard(19))">
                         <div style="width:160px;height:120px;border-radius:6px;display:@((allCards[19].CardState == CardState.NotSelected)? "inline-block": "none");background-color:#37393f;text-align:center">
-                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic'">20</span>
+                            <span style="color:#63656e;font-size:90px;font-weight:800;font-family:'Century Gothic',Tahoma">20</span>
                         </div>
                         <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[19].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[19].CardState == CardState.Selected) || (allCards[19].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[19].ImageSRC)"/>
                         <br />
-                        @*<span style="font-family:'Century Gothic';background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[19].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[19].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
-                        <span style="font-family:'Century Gothic';background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[19].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
+                        @*<span style="font-family:'Century Gothic',Tahoma;background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[19].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[19].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                        <span style="font-family:'Century Gothic',Tahoma;background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[19].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>*@
                     </div>
                 </td>
             </tr>
@@ -259,13 +259,10 @@
     </div>
     
     <br />
-    <span style="font-size:20px;font-family:'Century Gothic';margin-top:10px">You have taken @numberOfTurns.ToString() turn@(numberOfTurns==1? "":"s")</span>
+    <span style="font-size:20px;font-family:'Century Gothic',Tahoma;margin-top:10px">You have taken @numberOfTurns.ToString() turn@(numberOfTurns==1? "":"s")</span>
     <br />
     <input type="button" class="btn btn-primary" value="Back to Menu" onclick="location.href='/menu'" style="display:inline-block;width:200px;margin-bottom:20px" />
 </div>
-<audio id="player">
-    <source id="playerSource" src="" />
-</audio>
 
 
 
@@ -413,7 +410,7 @@
     {
         var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie");
         var cookies = result.Split("; ");
-        PolarHab.Data.RMessenger.OnChangeProgressBar((double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 12);
+        PolarHab.Data.RMessenger.OnChangeProgressBar((double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 13);
         this.StateHasChanged();
     }
 }

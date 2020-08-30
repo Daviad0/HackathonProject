@@ -1,0 +1,516 @@
+﻿@page "/guided-exploration/{dbKey}"
+@inject IJSRuntime JSRuntime;
+    <style>
+
+    .flex-container {
+    display: flex;
+}
+
+.flex-child {
+    flex: 1;
+}
+    .row-full {
+        width: 100vw;
+        position: relative;
+        margin-left: -50vw;
+        height: 100px;
+        margin-top: 100px;
+        left: 50%;
+    }
+    .floating{
+        animation-name: floatinganimation;
+        animation-iteration-count: infinite;
+        animation-duration: 3s;
+        animation-timing-function: ease;
+    }
+    @@keyframes floatinganimation {
+        0% {
+            margin-top: 20px;
+        }
+
+        50% {
+            margin-top: 30px;
+        }
+
+        100% {
+            margin-top: 20px;
+        }
+    }
+    .incorrectfloating {
+        animation-name: incorrectanswer;
+        animation-iteration-count: 1;
+        animation-duration: 0.5s;
+        animation-timing-function: cubic-bezier();
+    }
+
+    @@keyframes incorrectanswer {
+        0% {
+            margin-right: 20px;
+        }
+
+        25% {
+            margin-right: 40px;
+        }
+
+        50% {
+            margin-right: 20px;
+        }
+
+        75% {
+            margin-right: 40px;
+        }
+
+        100% {
+            margin-right: 20px;
+        }
+    }
+        .loader {
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #633570; /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+
+        @@keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+    </style>
+
+
+<div style="text-align:center;user-select:none;display:@(isLoading? "inline-block" : "none")">
+    <div class="loader" style="margin-top:6vh">
+
+    </div>
+    <span style="text-align:center;font-size:30px;font-weight:600;font-family:'Century Gothic',Tahoma">Loading...</span>
+</div>
+
+
+
+<div style="text-align:center;user-select:none;display:@(isLoading? "none" : "inline-block")">
+    <div style="text-align:center;display:inline-flex;width:60%">
+        <img src="@("images/" + selectedQuestion.ImageName)" style="width:300px;border-radius:8px;display:inline-block;border:2px solid #dedede"/>
+        <div style="display:inline-block;margin-left:20px">
+            <span style="font-size:30px;font-weight:800;color:dimgray;font-family:'Century Gothic',Tahoma">
+                @selectedQuestion.QuestionName <span style="background-color:mediumseagreen;font-size:15px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(alreadyCompleted? "inline" : "none")">Completed</span>
+            </span>
+            <br />
+            <span style="display:inline;z-index:2;text-wrap:normal;color:dimgray;font-family:'Century Gothic',Tahoma">
+                @selectedQuestion.QuestionDescription
+            </span>
+            <br />
+            <span style="z-index:2;text-wrap:normal;color:#633570;font-size:20px;font-weight:600;margin-top:10px;font-family:'Century Gothic',Tahoma">
+                Choose an Option Below!
+            </span>
+        </div>
+    </div>
+    <br />
+    <div style="justify-content:space-between;display:inline-flex;width:80%;margin-bottom:20px">
+        <div @onclick="ShowDialogueA" style="background-color:#f1f1f1;border-radius:8px;margin:10px;padding:40px;padding-right:60px;padding-left:60px;text-align:center;border-bottom:@(quizAnswers.GetValueOrDefault("A").currentlyAnswered? (quizAnswers.GetValueOrDefault("A").isCorrect? "3px solid green" : "3px solid red") : "3px solid #f1f1f1");cursor:pointer;display:@(((quizAnswers.GetValueOrDefault("A").answerText == null) || (quizAnswers.GetValueOrDefault("A").answerText == ""))? "none":"inline-block")" class="shadow">
+            <span style="font-size:30px;font-weight:800;color:dimgray;font-family:'Century Gothic',Tahoma;text-align:center;">
+                Option A
+            </span>
+            <br />
+            <span style="display:inline;z-index:2;text-wrap:normal;color:dimgray;font-family:'Century Gothic',Tahoma">
+                @(quizAnswers.GetValueOrDefault("A").answerText)
+            </span>
+        </div>
+        <div @onclick="ShowDialogueB" style="background-color:#f1f1f1;border-radius:8px;margin:10px;padding:40px;padding-right:60px;padding-left:60px;text-align:center;border-bottom:@(quizAnswers.GetValueOrDefault("B").currentlyAnswered? (quizAnswers.GetValueOrDefault("B").isCorrect? "3px solid green" : "3px solid red") : "3px solid #f1f1f1");cursor:pointer;display:@(((quizAnswers.GetValueOrDefault("B").answerText == null) || (quizAnswers.GetValueOrDefault("B").answerText == ""))? "none":"inline-block")" class="shadow">
+            <span style="font-size:30px;font-weight:800;color:dimgray;font-family:'Century Gothic',Tahoma;text-align:center">
+                Option B
+            </span>
+            <br />
+            <span style="display:inline;z-index:2;text-wrap:normal;color:dimgray;font-family:'Century Gothic',Tahoma">
+                @(quizAnswers.GetValueOrDefault("B").answerText)
+            </span>
+        </div>
+        <div @onclick="ShowDialogueC" style="background-color:#f1f1f1;border-radius:8px;margin:10px;padding:40px;padding-right:60px;padding-left:60px;text-align:center;border-bottom:@(quizAnswers.GetValueOrDefault("C").currentlyAnswered? (quizAnswers.GetValueOrDefault("C").isCorrect? "3px solid green" : "3px solid red") : "3px solid #f1f1f1");cursor:pointer;display:@(((quizAnswers.GetValueOrDefault("C").answerText == null) || (quizAnswers.GetValueOrDefault("C").answerText == ""))? "none":"inline-block")" class="shadow">
+            <span style="font-size:30px;font-weight:800;color:dimgray;font-family:'Century Gothic',Tahoma;text-align:center">
+                Option C
+            </span>
+            <br />
+            <span style="display:inline;z-index:2;text-wrap:normal;color:dimgray;font-family:'Century Gothic',Tahoma">
+                @(quizAnswers.GetValueOrDefault("C").answerText)
+            </span>
+        </div>
+        <div @onclick="ShowDialogueD" style="background-color:#f1f1f1;border-radius:8px;margin:10px;padding:40px;padding-right:60px;padding-left:60px;text-align:center;border-bottom:@(quizAnswers.GetValueOrDefault("D").currentlyAnswered? (quizAnswers.GetValueOrDefault("D").isCorrect? "3px solid green" : "3px solid red") : "3px solid #f1f1f1");cursor:pointer;display:@(((quizAnswers.GetValueOrDefault("D").answerText == null) || (quizAnswers.GetValueOrDefault("D").answerText == ""))? "none":"inline-block")" class="shadow">
+            <span style="font-size:30px;font-weight:800;color:dimgray;font-family:'Century Gothic',Tahoma;text-align:center">
+                Option D
+            </span>
+            <br />
+            <span style="display:inline;z-index:2;text-wrap:normal;color:dimgray;font-family:'Century Gothic',Tahoma">
+                @(quizAnswers.GetValueOrDefault("D").answerText)
+            </span>
+        </div>
+    </div>
+    <div style="background-color:#ffffff;width:80%;display:@(answerDialogue1? "inline-block" : "none");padding:30px;border-radius:8px;margin:20px;text-align:left;opacity:@(answerDialogue1? "1" : "0");border-top:3px solid red" class="@answerDialogueClass">
+        <span style="color:red;font-size:30px;font-family:'Century Gothic',Tahoma;font-weight:700">
+            Not Quite...
+        </span>
+        <br />
+        <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma">
+            @selectedQuestion.Wrong1Dialogue
+            
+        </span>
+    </div>
+    <div style="background-color:#ffffff;width:80%;display:@(answerDialogue2? "inline-block" : "none");padding:30px;border-radius:8px;margin:20px;text-align:left;opacity:@(answerDialogue2? "1" : "0");border-top:3px solid red" class="@answerDialogueClass">
+        <span style="color:red;font-size:30px;font-family:'Century Gothic',Tahoma;font-weight:700">
+            Nice Try...
+        </span>
+        <br />
+        <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma">
+            @selectedQuestion.Wrong2Dialogue
+            
+        </span>
+    </div>
+    <div style="background-color:#ffffff;width:80%;display:@(answerDialogue3? "inline-block" : "none");padding:30px;border-radius:8px;margin:20px;text-align:left;opacity:@(answerDialogue3? "1" : "0");border-top:3px solid red" class="@answerDialogueClass">
+        <span style="color:red;font-size:30px;font-family:'Century Gothic',Tahoma;font-weight:700">
+            Almost There...
+        </span>
+        <br />
+        <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma">
+            @selectedQuestion.Wrong3Dialogue
+            
+        </span>
+    </div>
+    <div style="background-color:#ffffff;width:80%;display:@(answerDialogue4? "inline-block" : "none");padding:30px;border-radius:8px;margin:20px;text-align:left;opacity:@(answerDialogue4? "1" : "0");border-top:3px solid green" class="@answerDialogueClass">
+        <span style="color:green;font-size:30px;font-family:'Century Gothic',Tahoma;font-weight:700">
+            You Got It!
+        </span>
+        <br />
+        <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma">
+            @selectedQuestion.CorrectDialogue
+            
+        </span>
+        <br />
+        <hr />
+        <span style="color:green;font-size:30px;font-family:'Century Gothic',Tahoma;font-weight:700">
+            @selectedQuestion.CorrectWhyTitle
+            
+        </span>
+        <br />
+        <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma">
+            @selectedQuestion.CorrectWhyDescription
+            
+        </span>
+    </div>
+    <br />
+    <input type="button" class="btn btn-primary" value="Back to Menu" onclick="location.href='/menu'" style="display:inline-block;width:200px" />
+</div>
+
+
+
+@code {
+    [Parameter]
+    public string dbKey { get; set; }
+    public PolarHab.DbAssets.Question selectedQuestion = new DbAssets.Question();
+    protected override async Task OnInitializedAsync()
+    {
+        using(var db = new PolarHab.DbAssets.ActivityContext())
+        {
+            selectedQuestion = db.Questions.Find(int.Parse(dbKey));
+            var qarray = new string[4] { "A", "B", "C", "D" };
+            var numiterations = new Random().Next(3, 10);
+            var randomnumgen = new Random();
+            for(int i = numiterations; i > 0; i--)
+            {
+                var pos1 = randomnumgen.Next(0, 4);
+                var pos2 = randomnumgen.Next(0, 4);
+                var pos1value = qarray[pos1];
+                var pos2value = qarray[pos2];
+                qarray[pos1] = pos2value;
+                qarray[pos2] = pos1value;
+            }
+            questionName = selectedQuestion.QuestionName;
+            questionDesc = selectedQuestion.QuestionDescription;
+            quizAnswers = new Dictionary<string, QuizAnswer>() {
+                { qarray[0], JsonConvert.DeserializeObject<QuizAnswer>(selectedQuestion.Answer1ModelJson) },
+                { qarray[1], JsonConvert.DeserializeObject<QuizAnswer>(selectedQuestion.Answer2ModelJson) },
+                { qarray[2], JsonConvert.DeserializeObject<QuizAnswer>(selectedQuestion.Answer3ModelJson) },
+                { qarray[3], JsonConvert.DeserializeObject<QuizAnswer>(selectedQuestion.Answer4ModelJson) },
+
+            };
+            FindCookies();
+            isLoading = false;
+            this.StateHasChanged();
+        }
+
+    }
+    private Dictionary<string, QuizAnswer> quizAnswers = new Dictionary<string, QuizAnswer>() {
+        { "A", new QuizAnswer() { isCorrect = false, answerText = "A1", answerDialogue = 1 } },
+        { "B", new QuizAnswer() { isCorrect = false, answerText = "A2", answerDialogue = 2 } },
+        { "C", new QuizAnswer() { isCorrect = true, answerText = "A3", answerDialogue = 4 } },
+        { "D", new QuizAnswer() { isCorrect = false, answerText = "A4", answerDialogue = 3 } },
+    };
+    private bool answerDialogue1 = false;
+    private bool isLoading = true;
+    private bool answerDialogue2 = false;
+    private bool answerDialogue3 = false;
+    private bool answerDialogue4 = false;
+    private bool alreadyCompleted = false;
+    private string questionName = "";
+    private string questionDesc = "";
+    public string answerDialogueClass = "shadow";
+
+    private async void ShowDialogueA()
+    {
+        if (!answerDialogueClass.Contains("incorrect"))
+        {
+            switch (quizAnswers.GetValueOrDefault("A").answerDialogue)
+            {
+                case 1:
+                    answerDialogue2 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = false;
+                    answerDialogue1 = true;
+                    break;
+                case 2:
+                    answerDialogue1 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = false;
+                    answerDialogue2 = true;
+                    break;
+                case 3:
+                    answerDialogue1 = false;
+                    answerDialogue2 = false;
+                    answerDialogue4 = false;
+                    answerDialogue3 = true;
+                    break;
+                case 4:
+                    answerDialogue1 = false;
+                    answerDialogue2 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = true;
+                    break;
+            }
+            quizAnswers.GetValueOrDefault("B").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("C").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("D").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("A").currentlyAnswered = true;
+            if (!quizAnswers.GetValueOrDefault("A").isCorrect)
+            {
+                PlayAudio(false);
+                answerDialogueClass = "shadow floating incorrectfloating";
+                await Task.Delay(500);
+                answerDialogueClass = "shadow floating";
+            }
+            else
+            {
+                answerDialogueClass = "shadow floating";
+                PlayAudio(true);
+                CompletedAddCookie();
+            }
+        }
+
+    }
+    private async void ShowDialogueB()
+    {
+        if (!answerDialogueClass.Contains("incorrect"))
+        {
+            switch (quizAnswers.GetValueOrDefault("B").answerDialogue)
+            {
+                case 1:
+                    answerDialogue2 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = false;
+                    answerDialogue1 = true;
+                    break;
+                case 2:
+                    answerDialogue1 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = false;
+                    answerDialogue2 = true;
+                    break;
+                case 3:
+                    answerDialogue1 = false;
+                    answerDialogue2 = false;
+                    answerDialogue4 = false;
+                    answerDialogue3 = true;
+                    break;
+                case 4:
+                    answerDialogue1 = false;
+                    answerDialogue2 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = true;
+                    break;
+            }
+            quizAnswers.GetValueOrDefault("A").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("C").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("D").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("B").currentlyAnswered = true;
+            if (!quizAnswers.GetValueOrDefault("B").isCorrect)
+            {
+                PlayAudio(false);
+                answerDialogueClass = "shadow floating incorrectfloating";
+                await Task.Delay(500);
+                answerDialogueClass = "shadow floating";
+            }
+            else
+            {
+                answerDialogueClass = "shadow floating";
+                PlayAudio(true);
+                CompletedAddCookie();
+            }
+        }
+
+    }
+    private async void ShowDialogueC()
+    {
+        if (!answerDialogueClass.Contains("incorrect"))
+        {
+            switch (quizAnswers.GetValueOrDefault("C").answerDialogue)
+            {
+                case 1:
+                    answerDialogue2 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = false;
+                    answerDialogue1 = true;
+                    break;
+                case 2:
+                    answerDialogue1 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = false;
+                    answerDialogue2 = true;
+                    break;
+                case 3:
+                    answerDialogue1 = false;
+                    answerDialogue2 = false;
+                    answerDialogue4 = false;
+                    answerDialogue3 = true;
+                    break;
+                case 4:
+                    answerDialogue1 = false;
+                    answerDialogue2 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = true;
+                    break;
+            }
+            quizAnswers.GetValueOrDefault("A").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("B").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("D").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("C").currentlyAnswered = true;
+            if (!quizAnswers.GetValueOrDefault("C").isCorrect)
+            {
+                PlayAudio(false);
+                answerDialogueClass = "shadow floating incorrectfloating";
+                await Task.Delay(500);
+                answerDialogueClass = "shadow floating";
+            }
+            else
+            {
+                answerDialogueClass = "shadow floating";
+                PlayAudio(true);
+                CompletedAddCookie();
+            }
+        }
+
+    }
+    private async void ShowDialogueD()
+    {
+        if (!answerDialogueClass.Contains("incorrect"))
+        {
+            switch (quizAnswers.GetValueOrDefault("D").answerDialogue)
+            {
+                case 1:
+                    answerDialogue2 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = false;
+                    answerDialogue1 = true;
+                    break;
+                case 2:
+                    answerDialogue1 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = false;
+                    answerDialogue2 = true;
+                    break;
+                case 3:
+                    answerDialogue1 = false;
+                    answerDialogue2 = false;
+                    answerDialogue4 = false;
+                    answerDialogue3 = true;
+                    break;
+                case 4:
+                    answerDialogue1 = false;
+                    answerDialogue2 = false;
+                    answerDialogue3 = false;
+                    answerDialogue4 = true;
+                    break;
+            }
+            quizAnswers.GetValueOrDefault("A").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("B").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("C").currentlyAnswered = false;
+            quizAnswers.GetValueOrDefault("D").currentlyAnswered = true;
+            if (!quizAnswers.GetValueOrDefault("D").isCorrect)
+            {
+                PlayAudio(false);
+                answerDialogueClass = "shadow floating incorrectfloating";
+                await Task.Delay(500);
+                answerDialogueClass = "shadow floating";
+
+            }
+            else
+            {
+                answerDialogueClass = "shadow floating";
+                PlayAudio(true);
+                CompletedAddCookie();
+
+            }
+        }
+
+    }
+    public async void CompletedAddCookie()
+    {
+        alreadyCompleted = true;
+        this.StateHasChanged();
+        await JSRuntime.InvokeAsync<string>("blazorExtensions.WriteCookie", "quizCompleted-"+selectedQuestion.CookieTag, "true", 100);
+        EXPSystem();
+
+    }
+    public async void PlayAudio(bool correct)
+    {
+        if (correct)
+        {
+            await JSRuntime.InvokeVoidAsync("PlayAudioFile", "images/rightanswer.wav");
+        }
+        else
+        {
+            await JSRuntime.InvokeVoidAsync("PlayAudioFile", "images/wronganswer.wav");
+        }
+
+
+    }
+    public async void FindCookies()
+    {
+        var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie");
+        var cookies = result.Split("; ");
+        if(cookies.Contains("quizCompleted-" + selectedQuestion.CookieTag + "=true"))
+        {
+            alreadyCompleted = true;
+            this.StateHasChanged();
+        }
+
+    }
+    public async void toJson()
+    {
+        var result = JsonConvert.SerializeObject(quizAnswers.GetValueOrDefault("A"));
+        Console.WriteLine(result);
+    }
+    public class QuizAnswer
+    {
+        public bool isCorrect { get; set; }
+        public string answerText { get; set; }
+        public int answerDialogue { get; set; }
+        public bool currentlyAnswered { get; set; }
+    }
+    public async void EXPSystem()
+    {
+        var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie");
+        var cookies = result.Split("; ");
+        PolarHab.Data.RMessenger.OnChangeProgressBar((double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 13);
+        this.StateHasChanged();
+    }
+
+}
+

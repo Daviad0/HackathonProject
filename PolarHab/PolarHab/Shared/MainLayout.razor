@@ -36,10 +36,10 @@
 </style>
 
 <div class="main" style="user-select:none">
-    <div class="top-row px-4">
-        
-        <span class="@addedProgessClasses" style="z-index:-1;background-color:lightseagreen;color:white;padding:5px;font-weight:600;font-family:'Century Gothic';border-radius:6px">+8%</span>
-        <span class="shadow" style="background-color:mediumseagreen;color:white;padding:5px;padding-left:10px;padding-right:10px;border-radius:6px;font-weight:600;font-family:'Century Gothic'">@((Math.Round(progress*100)).ToString()+"% a Polar Bear Wiz")</span>
+    <div class="top-row px-4" style="background-color:#dedede;z-index:2">
+        <button @onclick="TransferData" hidden>Transfer</button>
+        <span class="@addedProgessClasses" style="z-index:-1;background-color:lightseagreen;color:white;padding:5px;font-weight:600;font-family:'Century Gothic', Tahoma;border-radius:6px">+7.5%</span>
+        <span class="shadow" style="background-color:mediumseagreen;color:white;padding:5px;padding-left:10px;padding-right:10px;border-radius:6px;font-weight:600;font-family:'Century Gothic',Tahoma">@((Math.Round(progress*100)).ToString()+"% a Polar Bear Wiz")</span>
         <span onclick="location.href='/certificate'" style="z-index:-1;background-color:mediumseagreen;color:white;padding:5px;font-weight:600;border-radius:6px;margin-left:10px;display:@(allCompleted? "inline":"none")">!!</span>
     </div>
 
@@ -49,15 +49,34 @@
     
 </div>
 
+<audio id="player">
+    <source id="playerSource" src="" />
+</audio>
+
 @code{
     public double progress = 0;
     public bool allCompleted = false;
     public string addedProgessClasses = "noaddedprogress";
+    public async void TransferData()
+    {
+        var db1 = new PolarHab.DbAssets.OldActivityContext();
+        var db2 = new PolarHab.DbAssets.ActivityContext();
+        var allentries = db2.Questions.ToList();
+        foreach(var entry in allentries)
+        {
+            if (!db1.Questions.Contains(entry))
+            {
+                db1.Questions.Add(entry);
+            }
+            
+        }
+        db1.SaveChanges();
+    }
     public async void EXPSystem()
     {
         var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie");
         var cookies = result.Split("; ");
-        progress = (double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 12;
+        progress = (double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 13;
         if(progress >= 1)
         {
             allCompleted = true;
@@ -79,6 +98,11 @@
                     this.StateHasChanged();
                     await Task.Delay(6000);
                     addedProgessClasses = "noaddedprogress";
+                    if(progress >= 1)
+                    {
+                        allCompleted = true;
+                        JSRuntime.InvokeVoidAsync("PlayAudioFile", "images/progress100percent.wav");
+                    }
                     this.StateHasChanged();
                 }
 

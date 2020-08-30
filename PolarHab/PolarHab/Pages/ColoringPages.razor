@@ -6,7 +6,7 @@
 <style>
 
 body {
-	font-family: 'Century Gothic'; 
+	font-family: 'Century Gothic',Tahoma; 
 	margin: 0
 }
 
@@ -35,9 +35,7 @@ body {
 <div class="header">
 	<h1>Coloring Pages</h1>
 </div>
-<audio id="player">
-    <source id="playerSource" src="" />
-</audio>
+    <br />
 <div class="main">
 	<h2>Here's a few coloring pages for you to try!</h2>
 	<div class="coloring1">
@@ -54,7 +52,10 @@ body {
 		<img src="images/polar-bear-with-two-cubs-coloring-page.png" id="coloringsheet3" style="width:500px;height:500px" align= "left"/>
 	</div>
 </div>
-<input type="button" value="Download Coloring Sheets" @onclick="DownloadFiles" />
+    <br />
+<input class="btn btn-primary" type="button" value="Download Coloring Sheets" @onclick="DownloadFiles" />
+    <br />
+<input class="btn btn-primary" type="button" style="margin-top:10px" value="Back to Menu" onclick="location.href='/menu'" />
 </body>
 </html>
 @code{
@@ -78,7 +79,7 @@ body {
     {
         var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie");
         var cookies = result.Split("; ");
-        PolarHab.Data.RMessenger.OnChangeProgressBar((double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 12);
+        PolarHab.Data.RMessenger.OnChangeProgressBar((double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 13);
         this.StateHasChanged();
     }
     public async void DownloadFiles()

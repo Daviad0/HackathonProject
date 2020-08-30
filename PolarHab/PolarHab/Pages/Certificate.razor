@@ -22,7 +22,7 @@
 </style>
 <body>
     
-    <div style="text-align:center;font-family:'Century Gothic';display:@(allCompleted? "none" : "inline-block")">
+    <div style="text-align:center;font-family:'Century Gothic',Tahoma;display:@(allCompleted? "none" : "inline-block")">
         <span>You haven't completed all of the tasks!</span>
     </div>
     
@@ -30,8 +30,8 @@
         <div class="container" style="display:inline-block;padding:0px;margin:0px">
             <div id="capture" style="background-color:black;width:1000px;display:inline-block">
                 <img src="images/Certificate.png" style="display:inline-block;width:1000px">
-                <span class="centered" style="font-size:40px;width:800px;font-family:'Century Gothic'">@StudentName</span>
-                <span class="date" style="font-size:20px;width:800px;font-family:'Century Gothic'">@DateTime.Now.ToShortDateString()</span>
+                <span class="centered" style="font-size:40px;width:800px;font-family:'Century Gothic',Tahoma">@StudentName</span>
+                <span class="date" style="font-size:20px;width:800px;font-family:'Century Gothic',Tahoma">@DateTime.Now.ToShortDateString()</span>
             </div>
             
         </div>
@@ -67,7 +67,7 @@
     {
         var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie");
         var cookies = result.Split("; ");
-        if(((double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 12) >= 1)
+        if(((double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 13) >= 1)
         {
             allCompleted = true;
         }

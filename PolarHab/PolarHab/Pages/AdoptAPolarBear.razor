@@ -1,0 +1,161 @@
+﻿@page "/adopt"
+@inject IJSRuntime JSRuntime;
+<style>
+    .body{
+        overflow: hidden;
+    }
+    .centered {
+        position: absolute;
+        top: 49%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .typetag {
+        position: absolute;
+        transform: translate(-50%, -50%);
+    }
+    .date {
+        position: absolute;
+        top: 57.5%;
+        left: 38.5%;
+        transform: translate(-50%, -50%);
+    }
+
+    .container {
+        position: relative;
+        text-align: center;
+        color: black;
+    }
+    .entirebody {
+        overflow-y: scroll; /* Add the ability to scroll */
+    }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .entirebody::-webkit-scrollbar {
+            display: none;
+        }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .entirebody {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+</style>
+<div class="entirebody">
+    <div style="text-align:center;margin:0;padding:0">
+        <div class="container" style="display:inline-block;padding:0px;margin:0px">
+            <div id="capture" style="background-color:black;width:1000px;display:inline-block">
+                <img src="images/AdoptCertificate.png" style="display:inline-block;width:1000px;margin-right:10px">
+                <span class="centered" style="font-size:40px;font-family:'Century Gothic',Tahoma;top:35%;left:70%;color:dodgerblue">@BearName</span>
+                <span class="centered" style="font-size:30px;font-family:'Century Gothic',Tahoma;top:45%;left:70%;color:dodgerblue">@(BearAge>0? BearAge.ToString() : "")</span>
+                <span class="centered" style="font-size:20px;font-family:'Century Gothic',Tahoma;top:60%;left:61%;color:dodgerblue">@FavoriteFood</span>
+                <span class="centered" style="font-size:20px;font-family:'Century Gothic',Tahoma;top:71%;left:83%;color:dodgerblue">@FavoriteSight</span>
+                <span class="centered" style="font-size:20px;font-family:'Century Gothic',Tahoma;top:84%;left:61%;color:dodgerblue">@FavoriteActivity</span>
+            
+            </div>
+            
+        </div>
+        <button class="btn btn-primary" style="display:inline-block;width:1000px;margin-top:10px;margin-bottom:10px" disabled="@(BearName != null? (BearName.Length>0? false:true):true)" @onclick="CanvasUwu">Download Page</button>
+        <input type="button" class="btn btn-primary" value="Back to Menu" onclick="location.href='/menu'" style="display:inline-block;width:1000px" />
+    </div>
+    <div style="text-align:center;margin-top:5px">
+        <div class="input-group mb-3" style="text-align:center;width:900px;display:inline-block">
+            <div class="input-group-prepend" style="display:inline-block">
+            <span class="input-group-text" id="basic-addon1" style="width:100px;text-align:center">Bear Name</span>
+            </div>
+            <input maxlength="17" type="text" class="form-control" @bind="BearName" @onkeypress="InputChange" placeholder="Imaex Ample" aria-label="Name" aria-describedby="basic-addon1" style="display:inline-block;width:796px">
+        </div>
+    </div>
+    <div style="text-align:center;margin-top:5px">
+        <div class="input-group mb-3" style="text-align:center; width:900px;display:inline-block">
+            <div class="input-group-prepend" style="display:inline-block">
+            <span class="input-group-text" id="basic-addon1" style="width:100px;text-align:center">Bear Age</span>
+            </div>
+            <input type="number" class="form-control" @bind="BearAge" @onkeypress="InputChange" placeholder="0" aria-label="Name" aria-describedby="basic-addon1" style="display:inline-block;width:796px">
+        </div>
+    </div>
+    <div style="text-align:center;margin-bottom:20px">
+    
+        <table style="width:900px;display:inline-block">
+            <tr style="width:100%">
+                <th style="width:300px">Favorite Food</th>
+                <th style="width:300px">Favorite Sight</th>
+                <th style="width:300px">Favorite Activity</th>
+            </tr>
+            <tr style="width:100%">
+               <td style="width:300px">
+                   <select class="custom-select" style="margin:10px" @onchange="FavFood">
+                       <option value="Watermelons">Watermelons</option>
+                       <option value="Moose Meat">Moose Meat</option>
+                       <option value="Seal Blubber">Seal Blubber</option>
+                       <option value="Berries">Berries</option>
+                   </select>
+               </td>
+                <td style="width:300px">
+                   <select class="custom-select" style="margin:10px" @onchange="FavSight">
+                       <option value="The Mountains">The Mountains</option>
+                       <option value="The Ocean">The Ocean</option>
+                       <option value="The City">The City</option>
+                       <option value="The Open Road">The Open Road</option>
+                   </select>
+               </td> 
+                <td style="width:300px">
+                   <select class="custom-select" style="margin:10px" @onchange="FavActivity">
+                       <option value="Swimming">Swimming</option>
+                       <option value="Sleeping">Sleeping</option>
+                       <option value="Eating">Eating</option>
+                       <option value="Playing">Playing</option>
+                       <option value="Hunting">Hunting</option>
+                   </select>
+               </td> 
+            </tr>
+        </table>
+    
+    </div>
+
+    <br />
+    <br />
+</div>
+
+@code {
+    public string BearName { get; set; }
+    public int BearAge { get; set; }
+    public string FavoriteFood = "Watermelons";
+    public string FavoriteSight = "The Mountains";
+    public string FavoriteActivity = "Swimming";
+    protected void FavFood(ChangeEventArgs e)
+    {
+        FavoriteFood = e.Value.ToString();
+    }
+    protected void FavSight(ChangeEventArgs e)
+    {
+        FavoriteSight = e.Value.ToString();
+    }
+    protected void FavActivity(ChangeEventArgs e)
+    {
+        FavoriteActivity = e.Value.ToString();
+    }
+    private async void InputChange(KeyboardEventArgs e)
+    {
+        this.StateHasChanged();
+    } 
+    private async void CanvasUwu()
+    {
+        CompletedAddCookie();
+        await JSRuntime.InvokeVoidAsync("AddCanvas");
+    }
+    public async void CompletedAddCookie()
+    {
+        this.StateHasChanged();
+        await JSRuntime.InvokeAsync<string>("blazorExtensions.WriteCookie", "activityCompleted-adopt", "true", 100);
+        EXPSystem();
+
+    }
+    public async void EXPSystem()
+    {
+        var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie");
+        var cookies = result.Split("; ");
+        PolarHab.Data.RMessenger.OnChangeProgressBar((double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 13);
+        this.StateHasChanged();
+    }
+}

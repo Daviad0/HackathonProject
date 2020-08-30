@@ -8,11 +8,13 @@
         text-align: center;
         background: #86a3c3;
         color: white;
+        border-radius: 15px 15px 0px 0px;
     }
     /* nav bar */
     nav {
         background-color: #333;
         margin-bottom: 25px;
+        border-radius: 0px 0px 15px 15px;
     }
         /* list of pages */
         nav ul {
@@ -29,12 +31,13 @@
             padding-bottom: 20px;
             position: relative;
             transition: letter-spacing 0.5s;
+            font-family:'Century Gothic',Tahoma
         }
         /* nav text */
         nav a {
             color: white;
             text-decoration: none;
-            font-family: 'Century Gothic';
+            font-family: 'Century Gothic',Tahoma;
             font-size: 20px;
             transition: letter-spacing 0.5s;
         }
@@ -71,27 +74,27 @@
         }
 </style>
 <header>
-<h1>Activities</h1>
-<p> Fun quizzes and games to learn more about polar bears!</p>
+<h1 style="font-family: 'Century Gothic',Tahoma">All Activities</h1>
 </header>
 <nav>
     <ul>
-        <li><a href="https://localhost:44370/">Home</a></li>
-        <li><a href="https://localhost:44370/menu">Activities</a></li>
-        <li><a href="https://localhost:44370/climate">About Climate Change</a></li>
-        <li><a href="https://localhost:44370/videos">More Videos</a></li>
-        <li><a href="https://localhost:44370/timeline">Timeline</a></li>
-        <li><a href="https://localhost:44370/about">About</a></li>
+        <li><a href="/">Home</a></li>
+            <li><a href="/menu">Activities</a></li>
+            <li><a href="/climate">About Climate Change</a></li>
+            <li><a href="/videos">More Videos</a></li>
+            <li><a href="/timeline">Timeline</a></li>
+            <li><a href="/bearnames">The Bears</a></li>
+            <li><a href="/about">About</a></li>
     </ul>
 </nav>
 
 <div style="user-select:none">
     <div class="shadow" style="width:80%;padding:20px;border-radius:8px">
-        <span class="header" style="font-size:30px;font-family:'Century Gothic';font-weight:700">
+        <span class="header" style="font-size:30px;font-family:'Century Gothic',Tahoma;font-weight:700">
             Multiple Choice Exploration
         </span>
         <br />
-        <span style="text-wrap:normal;font-family:'Century Gothic'">
+        <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma">
             Learn some cool facts about polar bears with mini questions!
         </span>
     </div>
@@ -102,17 +105,17 @@
     {
     <div>
         <div onclick="location.href='/guided-exploration/@(quizQuestions.ToArray()[(i*3)].QuestionKey)'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
-            <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
+            <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma" class="nonhover">
                 @quizQuestions.ToArray()[(i*3)].QuestionName <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("quizCompleted-"+quizQuestions.ToArray()[(i*3)].CookieTag+"=true")? "inline" : "none")">Completed</span>
             </span>
         </div>
         <div onclick="location.href='/guided-exploration/@(quizQuestions.ToArray()[(i*3)+1].QuestionKey)'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
-            <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
+            <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma" class="nonhover">
                 @quizQuestions.ToArray()[(i*3)+1].QuestionName <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("quizCompleted-"+quizQuestions.ToArray()[(i*3)+1].CookieTag+"=true")? "inline" : "none")">Completed</span>
             </span>
         </div>
         <div onclick="location.href='/guided-exploration/@(quizQuestions.ToArray()[(i*3)+2].QuestionKey)'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
-            <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
+            <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma" class="nonhover">
                 @quizQuestions.ToArray()[(i*3)+2].QuestionName <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("quizCompleted-"+quizQuestions.ToArray()[(i*3)+2].CookieTag+"=true")? "inline" : "none")">Completed</span>
             </span>
         </div>
@@ -121,12 +124,12 @@
     {
     <div>
         <div onclick="location.href='/guided-exploration/@(quizQuestions.ToArray()[(i*3)].QuestionKey)'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
-            <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
+            <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma" class="nonhover">
                 @quizQuestions.ToArray()[(i*3)].QuestionName <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("quizCompleted-"+quizQuestions.ToArray()[(i*3)].CookieTag+"=true")? "inline" : "none")">Completed</span>
             </span>
         </div>
         <div onclick="location.href='/guided-exploration/@(quizQuestions.ToArray()[(i*3)+1].QuestionKey)'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
-            <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
+            <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma" class="nonhover">
                 @quizQuestions.ToArray()[(i*3)+1].QuestionName <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("quizCompleted-"+quizQuestions.ToArray()[(i*3)+1].CookieTag+"=true")? "inline" : "none")">Completed</span>
             </span>
         </div>
@@ -136,7 +139,7 @@
     {
     <div>
         <div onclick="location.href='/guided-exploration@(quizQuestions.ToArray()[(i*3)].QuestionKey)'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
-            <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
+            <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma" class="nonhover">
                 @quizQuestions.ToArray()[(i*3)].QuestionName <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("quizCompleted-"+quizQuestions.ToArray()[(i*3)].CookieTag+"=true")? "inline" : "none")">Completed</span>
             </span>
         </div>
@@ -147,47 +150,52 @@
 
     <br />
     <div class="shadow" style="width:80%;padding:20px;border-radius:8px">
-        <span style="font-size:30px;font-family:'Century Gothic';font-weight:700">
+        <span style="font-size:30px;font-family:'Century Gothic',Tahoma;font-weight:700">
             Interactive Activities
         </span>
         <br />
-        <span style="text-wrap:normal;font-family:'Century Gothic'">
+        <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma">
             See the 4 polar bears of the Canadian Polar Bear Habitat while testing your memory and skills.
         </span>
     </div>
     <br />
     <div>
         <div onclick="location.href='/matching'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
-            <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
+            <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma" class="nonhover">
                 Memory Matching <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("activityCompleted-matching=true")? "inline" : "none")">Completed</span>
             </span>
         </div>
         <div onclick="location.href='/findoutquiz'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
-            <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
+            <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma" class="nonhover">
                 Which Bear are you? <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("activityCompleted-findout=true")? "inline" : "none")">Completed</span>
+            </span>
+        </div>
+        <div onclick="location.href='/adopt'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
+            <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma" class="nonhover">
+                Abopt a Polar Bear <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("activityCompleted-adopt=true")? "inline" : "none")">Completed</span>
             </span>
         </div>
     </div>
 
     <br />
     <div class="shadow" style="width:80%;padding:20px;border-radius:8px">
-        <span style="font-size:30px;font-family:'Century Gothic';font-weight:700">
+        <span style="font-size:30px;font-family:'Century Gothic',Tahoma;font-weight:700">
             Downloadable Content
         </span>
         <br />
-        <span style="text-wrap:normal;font-family:'Century Gothic'">
+        <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma">
             Print these out and learn about the wonders of polar bears!
         </span>
     </div>
     <br />
     <div>
         <div onclick="location.href='/wordsearch'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
-            <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
+            <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma" class="nonhover">
                 Word Search <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("activityCompleted-wordsearch=true")? "inline" : "none")">Completed</span>
             </span>
         </div>
         <div onclick="location.href='/coloringpages'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
-            <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
+            <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma" class="nonhover">
                 Coloring Pages <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("activityCompleted-coloringpages=true")? "inline" : "none")">Completed</span>
             </span>
         </div>

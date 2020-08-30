@@ -1,0 +1,150 @@
+﻿@page "/videos"
+
+<html lang="en">
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  font-family: 'Century Gothic',Tahoma;
+  margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 80px;
+  text-align: center;
+  background: #86a3c3;
+  color: white;
+  border-radius: 15px 15px 0px 0px;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 40px;
+}
+
+
+/* Column container */
+.row {  
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+/* Main column */
+.main {   
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  background-color: white;
+}
+/* nav bar */
+    nav {
+        background-color: #333;
+        border-radius: 0px 0px 15px 15px;
+    }
+/* list of pages */
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+/* nav list items */
+        nav li {
+            display: inline-block;
+            margin-left: 70px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            position: relative;
+            transition: letter-spacing 0.5s;
+            font-family:'Century Gothic',Tahoma
+        }
+/* nav text */
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Century Gothic',Tahoma;
+            font-size: 20px;
+            transition: letter-spacing 0.5s;
+        }
+ /* nav active */
+            nav a:hover {
+                letter-spacing: 1px;
+                transition: all ease-in-out 250ms;
+                color: white;
+                text-decoration: none;
+            }
+/* nav top line */
+            nav a::before {
+                content: '';
+                display: block;
+                height: 5px;
+                background-color: white;
+                position: absolute;
+                width: 0%;
+                top: 0;
+                transition: all ease-in-out 250ms;
+            }
+/* nav top line active */
+            nav a:hover::before {
+                width: 95%;
+            }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Educational Videos</h1>
+</div>
+
+<nav>
+    <ul>
+         <li><a href="/">Home</a></li>
+            <li><a href="/menu">Activities</a></li>
+            <li><a href="/climate">About Climate Change</a></li>
+            <li><a href="/videos">More Videos</a></li>
+            <li><a href="/timeline">Timeline</a></li>
+            <li><a href="/bearnames">The Bears</a></li>
+            <li><a href="/about">About</a></li>
+    </ul>
+</nav>
+  
+  <div class="main">
+    <br>
+    <h2>Video One</h2>
+    <h5>This is a short 4 minute video talking about some fun facts about polar bears.</h5>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/1zRGzlWqce4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br>
+    <hr>
+    <br>
+    <h2>Video Two</h2>
+    <h5> Another, even shorter video (~1 minute) also talking about a couple fun facts. There are many unique facts that you can learn about Polar Bears through this!</h5>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/XdCaBF8NJ00" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
+<hr>
+<br>
+    <h2>Video Three</h2>
+    <h5>A 10 minute short film about 2 male polar bears. This video covers the importance of winter and the first big freeze and how global warming is affecting the ice that grows over the Arctic Ocean every year. It also covers a little bit of a bear's yearly schedule.</h5>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/QHaJdznlRBg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+
+    <br />
+    <br />
+    <br />
+
+    
+    <br />
+    <br />
+
+</body>
+</html>

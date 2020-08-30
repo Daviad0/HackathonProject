@@ -29,6 +29,10 @@ namespace PolarHab
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+            services.AddServerSideBlazor().AddCircuitOptions(o =>
+            {
+                    o.DetailedErrors = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +51,6 @@ namespace PolarHab
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

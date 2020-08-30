@@ -65,7 +65,6 @@ C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcore
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\App.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Error.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\FetchData.razor.g.cs
-C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Index.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\MainLayout.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\NavMenu.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\SurveyPrompt.razor.g.cs
@@ -160,11 +159,8 @@ C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcore
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ActivityEating.razor.g.cs
-C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\LiveStream.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\Inukshuk.jpg
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\Henry Snowy Scene.jpg
-C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Crossword.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\coloringsheet.png
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\wordsearch.png
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\Inukshuk_Snowy_Scene.jpg
@@ -194,13 +190,9 @@ C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcore
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\PolarHab.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\PolarHab.dll
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\App.razor.g.cs
-C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\ActivityEating.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\ActivityMenu.razor.g.cs
-C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\Crossword.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\Error.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\FetchData.razor.g.cs
-C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\Index.razor.g.cs
-C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\LiveStream.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Shared\MainLayout.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Shared\NavMenu.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Shared\SurveyPrompt.razor.g.cs
@@ -224,13 +216,9 @@ C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcore
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\HomePageImage.png
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Certificate.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\Certificate.razor.g.cs
-C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Counter.razor.g.cs
-C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\Counter.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\Certificate.png
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\MatchingGame.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\MatchingGame.razor.g.cs
-C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Buzzfeed.razor.g.cs
-C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\Buzzfeed.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\Eddy Snowy Scene.jpg
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\Ganuk Snowy Scene.jpg
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\Henry at the Lake again.jpg
@@ -243,10 +231,28 @@ C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcore
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\GrayCardBack.png
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\About.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\About.razor.g.cs
-C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\BearNames.razor.g.cs
-C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\BearNames.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\matchingmatch.wav
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\bear_eddy.png
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\bear_ganuk.png
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\bear_henry.png
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\bear_inukshuk.png
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Videos.razor.g.cs
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\Videos.razor.g.cs
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\QuizQuestion.razor.g.cs
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\QuizQuestion.razor.g.cs
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\progress100percent.wav
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\WhichAreYou.razor.g.cs
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\WhichAreYou.razor.g.cs
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\PolarHabLogoHorz.png
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\WordSearch.razor.g.cs
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\WordSearch.razor.g.cs
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\LiveStream.razor.g.cs
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\LiveStream.razor.g.cs
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\assets\Century Gothic.ttf
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\AugmentedReality.razor.g.cs
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\AugmentedReality.razor.g.cs
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\AdoptAPolarBear.razor.g.cs
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\AdoptAPolarBear.razor.g.cs
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\AdoptCertificate.png
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\PolarBearLongFinal.jpg
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\PolarHabLogoVert.png

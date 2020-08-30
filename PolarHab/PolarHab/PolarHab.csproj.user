@@ -9,5 +9,6 @@
     <WebStackScaffolding_IsReferencingScriptLibrariesSelected>True</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
     <WebStackScaffolding_LayoutPageFile />
     <ShowAllFiles>false</ShowAllFiles>
+    <NameOfLastUsedPublishProfile>PolarHab - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

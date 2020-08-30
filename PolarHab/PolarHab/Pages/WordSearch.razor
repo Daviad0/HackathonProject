@@ -1,0 +1,81 @@
+﻿@page "/wordsearch"
+@inject IJSRuntime JSRuntime;
+
+<head>
+<style>
+
+body {
+	font-family: 'Century Gothic',Tahoma; 
+	margin: 0
+}
+
+.header {
+	padding:80px;
+	text-align: center;
+	background: #86a3c3;
+	color: white;
+    border-radius:10px;
+}
+
+    .header h1 {
+        font-size: 40px;
+    }
+
+    .main {
+        -ms-flex: 80%;
+        flex: 80%;
+        background-color: white;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+	<h1>Word Search</h1>
+</div>
+    <br />
+<div class="main">
+	<div class="coloring1">
+		<img src="images/wordsearch.png" id="wordsearch1" style="width:400px;height:450px; overflow:hidden" align= "left" />
+	</div>
+</div>
+<br />
+    <br />
+<input class="btn btn-primary" type="button" value="Download Word Search Sheets" @onclick="DownloadFiles" />
+<br />
+<input class="btn btn-primary" type="button" style="margin-top:10px" value="Back to Menu" onclick="location.href='/menu'" />
+</body>
+
+<!-- download file not cropped correctly -->
+
+@code{
+    protected override async Task OnInitializedAsync()
+    {
+        CompletedAddCookie();
+    }
+    protected override void OnAfterRender(bool firstRender)
+	{
+	
+		base.OnAfterRender(firstRender);
+	}
+    public async void CompletedAddCookie()
+    {
+
+        await JSRuntime.InvokeAsync<string>("blazorExtensions.WriteCookie", "activityCompleted-wordsearch", "true", 100);
+        this.StateHasChanged();
+        EXPSystem();
+    }
+    public async void EXPSystem()
+    {
+        var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie");
+        var cookies = result.Split("; ");
+        PolarHab.Data.RMessenger.OnChangeProgressBar((double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 13);
+        this.StateHasChanged();
+    }
+    public async void DownloadFiles()
+    {
+        await JSRuntime.InvokeAsync<string>("DownloadImage", "wordsearch1", "WordSearch.png");
+        CompletedAddCookie();
+    }
+}
