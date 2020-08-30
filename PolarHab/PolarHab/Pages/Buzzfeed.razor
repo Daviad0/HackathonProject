@@ -2,40 +2,40 @@
 <h3>Buzzfeeduwu</h3>
 
 <div style="justify-content:space-between;display:inline-flex;width:80%;margin-bottom:20px">
-    <div @onclick="ShowDialogueA" style="background-color:#f1f1f1;border-radius:8px;margin:10px;padding:40px;padding-right:60px;padding-left:60px;text-align:center;border-bottom:@(quizAnswers.GetValueOrDefault("A").currentlyAnswered? (quizAnswers.GetValueOrDefault("A").isCorrect? "3px solid green" : "3px solid red") : "3px solid #f1f1f1");cursor:pointer;display:@(((quizAnswers.GetValueOrDefault("A").answerText == null) || (quizAnswers.GetValueOrDefault("A").answerText == ""))? "none":"inline-block")" class="shadow">
+    <div @onclick="(() => sendResults(Questions.ToArray()[currentQuestion-1].Option1.Type))" style="background-color:#f1f1f1;border-radius:8px;margin:10px;padding:40px;padding-right:60px;padding-left:60px;text-align:center" class="shadow">
         <span style="font-size:30px;font-weight:800;color:dimgray;font-family:'Century Gothic';text-align:center;">
             Option A
         </span>
         <br />
         <span style="display:inline;z-index:2;text-wrap:normal;color:dimgray;font-family:'Century Gothic'">
-            @(quizAnswers.GetValueOrDefault("A").answerText)
+            @(Questions.ToArray()[currentQuestion-1].Option1.Text)
         </span>
     </div>
-    <div @onclick="ShowDialogueB" style="background-color:#f1f1f1;border-radius:8px;margin:10px;padding:40px;padding-right:60px;padding-left:60px;text-align:center;border-bottom:@(quizAnswers.GetValueOrDefault("B").currentlyAnswered? (quizAnswers.GetValueOrDefault("B").isCorrect? "3px solid green" : "3px solid red") : "3px solid #f1f1f1");cursor:pointer;display:@(((quizAnswers.GetValueOrDefault("B").answerText == null) || (quizAnswers.GetValueOrDefault("B").answerText == ""))? "none":"inline-block")" class="shadow">
+    <div @onclick="(() => sendResults(Questions.ToArray()[currentQuestion-1].Option2.Type))" style="background-color:#f1f1f1;border-radius:8px;margin:10px;padding:40px;padding-right:60px;padding-left:60px;text-align:center" class="shadow">
         <span style="font-size:30px;font-weight:800;color:dimgray;font-family:'Century Gothic';text-align:center">
             Option B
         </span>
         <br />
         <span style="display:inline;z-index:2;text-wrap:normal;color:dimgray;font-family:'Century Gothic'">
-            @(quizAnswers.GetValueOrDefault("B").answerText)
+            @(Questions.ToArray()[currentQuestion-1].Option2.Text)
         </span>
     </div>
-    <div @onclick="ShowDialogueC" style="background-color:#f1f1f1;border-radius:8px;margin:10px;padding:40px;padding-right:60px;padding-left:60px;text-align:center;border-bottom:@(quizAnswers.GetValueOrDefault("C").currentlyAnswered? (quizAnswers.GetValueOrDefault("C").isCorrect? "3px solid green" : "3px solid red") : "3px solid #f1f1f1");cursor:pointer;display:@(((quizAnswers.GetValueOrDefault("C").answerText == null) || (quizAnswers.GetValueOrDefault("C").answerText == ""))? "none":"inline-block")" class="shadow">
+    <div @onclick="(() => sendResults(Questions.ToArray()[currentQuestion-1].Option3.Type))" style="background-color:#f1f1f1;border-radius:8px;margin:10px;padding:40px;padding-right:60px;padding-left:60px;text-align:center" class="shadow">
         <span style="font-size:30px;font-weight:800;color:dimgray;font-family:'Century Gothic';text-align:center">
             Option C
         </span>
         <br />
         <span style="display:inline;z-index:2;text-wrap:normal;color:dimgray;font-family:'Century Gothic'">
-            @(quizAnswers.GetValueOrDefault("C").answerText)
+            @(Questions.ToArray()[currentQuestion-1].Option3.Text)
         </span>
     </div>
-    <div @onclick="ShowDialogueD" style="background-color:#f1f1f1;border-radius:8px;margin:10px;padding:40px;padding-right:60px;padding-left:60px;text-align:center;border-bottom:@(quizAnswers.GetValueOrDefault("D").currentlyAnswered? (quizAnswers.GetValueOrDefault("D").isCorrect? "3px solid green" : "3px solid red") : "3px solid #f1f1f1");cursor:pointer;display:@(((quizAnswers.GetValueOrDefault("D").answerText == null) || (quizAnswers.GetValueOrDefault("D").answerText == ""))? "none":"inline-block")" class="shadow">
+    <div @onclick="(() => sendResults(Questions.ToArray()[currentQuestion-1].Option4.Type))" style="background-color:#f1f1f1;border-radius:8px;margin:10px;padding:40px;padding-right:60px;padding-left:60px;text-align:center" class="shadow">
         <span style="font-size:30px;font-weight:800;color:dimgray;font-family:'Century Gothic';text-align:center">
             Option D
         </span>
         <br />
         <span style="display:inline;z-index:2;text-wrap:normal;color:dimgray;font-family:'Century Gothic'">
-            @(quizAnswers.GetValueOrDefault("D").answerText)
+            @(Questions.ToArray()[currentQuestion-1].Option4.Text)
         </span>
     </div>
 </div>
@@ -52,9 +52,9 @@
         currentQuestion--;
         this.StateHasChanged();
     }
-    public void sendResults()
+    public void sendResults(BearType type)
     {
-
+        Results[currentQuestion - 1] = type;
     }
     public BearType[] Results = new BearType[7] { BearType.None, BearType.None, BearType.None, BearType.None, BearType.None, BearType.None, BearType.None };
     public List<BFQuestion> Questions = new List<BFQuestion>()
@@ -62,65 +62,65 @@
         new BFQuestion()
         {
             QNum = 1,
-            QText = "A",
-            Option1 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option2 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option3 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option4 = new BFAnswer() { Text = "A", Type = BearType.None }
+            QText = "Do you like the cold?",
+            Option1 = new BFAnswer() { Text = "I thrive in the cold", Type = BearType.Polar },
+            Option2 = new BFAnswer() { Text = "I love the cold", Type = BearType.Panda },
+            Option3 = new BFAnswer() { Text = "It's okay...", Type = BearType.Black },
+            Option4 = new BFAnswer() { Text = "I don't like the cold", Type = BearType.Brown }
         },
         new BFQuestion()
         {
             QNum = 2,
-            QText = "A",
-            Option1 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option2 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option3 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option4 = new BFAnswer() { Text = "A", Type = BearType.None }
+            QText = "What are your opinions on sleeping?",
+            Option1 = new BFAnswer() { Text = "I sleep 14hrs a day", Type = BearType.Panda },
+            Option2 = new BFAnswer() { Text = "I barely sleep", Type = BearType.Polar },
+            Option3 = new BFAnswer() { Text = "Sleep is okay in perfect amounts", Type = BearType.Black },
+            Option4 = new BFAnswer() { Text = "Sleep is just eh", Type = BearType.Brown }
         },
         new BFQuestion()
         {
             QNum = 3,
-            QText = "A",
-            Option1 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option2 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option3 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option4 = new BFAnswer() { Text = "A", Type = BearType.None }
+            QText = "How well do you eat?",
+            Option1 = new BFAnswer() { Text = "Junk food all the time", Type = BearType.Panda },
+            Option2 = new BFAnswer() { Text = "I love eating, but only healthy foods", Type = BearType.Brown },
+            Option3 = new BFAnswer() { Text = "I love fruits and veggies", Type = BearType.Black },
+            Option4 = new BFAnswer() { Text = "I like everything", Type = BearType.Polar }
         },
         new BFQuestion()
         {
             QNum = 4,
-            QText = "A",
-            Option1 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option2 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option3 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option4 = new BFAnswer() { Text = "A", Type = BearType.None }
+            QText = "What pleases you the most?",
+            Option1 = new BFAnswer() { Text = "Mountain slips", Type = BearType.Brown },
+            Option2 = new BFAnswer() { Text = "Tundra", Type = BearType.Polar },
+            Option3 = new BFAnswer() { Text = "Deciduous Forest", Type = BearType.Black },
+            Option4 = new BFAnswer() { Text = "Coniferous Forest", Type = BearType.Panda }
         },
         new BFQuestion()
         {
             QNum = 5,
-            QText = "A",
-            Option1 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option2 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option3 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option4 = new BFAnswer() { Text = "A", Type = BearType.None }
+            QText = "What would your friends describe you as?",
+            Option1 = new BFAnswer() { Text = "I don't have friends", Type = BearType.Polar },
+            Option2 = new BFAnswer() { Text = "Laidback", Type = BearType.Panda },
+            Option3 = new BFAnswer() { Text = "Responsible", Type = BearType.Black },
+            Option4 = new BFAnswer() { Text = "Unique but kinda weird at the same time", Type = BearType.Brown }
         },
         new BFQuestion()
         {
             QNum = 6,
-            QText = "A",
-            Option1 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option2 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option3 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option4 = new BFAnswer() { Text = "A", Type = BearType.None }
+            QText = "Pick out a word that stands out to you.",
+            Option1 = new BFAnswer() { Text = "Courage ", Type = BearType.Black },
+            Option2 = new BFAnswer() { Text = "Curiosity ", Type = BearType.Panda },
+            Option3 = new BFAnswer() { Text = "Adventure ", Type = BearType.Brown },
+            Option4 = new BFAnswer() { Text = "Independence ", Type = BearType.Polar }
         },
         new BFQuestion()
         {
             QNum = 7,
-            QText = "A",
-            Option1 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option2 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option3 = new BFAnswer() { Text = "A", Type = BearType.None },
-            Option4 = new BFAnswer() { Text = "A", Type = BearType.None }
+            QText = "What’s your favorite drink?",
+            Option1 = new BFAnswer() { Text = "Water", Type = BearType.Polar },
+            Option2 = new BFAnswer() { Text = "Tea", Type = BearType.Panda },
+            Option3 = new BFAnswer() { Text = "Milkshake ", Type = BearType.Black },
+            Option4 = new BFAnswer() { Text = "Orange Juice", Type = BearType.Brown }
         },
     };
     public class BFQuestion

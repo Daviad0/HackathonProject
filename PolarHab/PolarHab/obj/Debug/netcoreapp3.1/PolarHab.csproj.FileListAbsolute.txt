@@ -233,3 +233,14 @@ C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcore
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\Buzzfeeduwu.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\BFQuiz.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Buzzfeed.razor.g.cs
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\BFQuiz.razor.g.cs
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\Buzzfeed.razor.g.cs
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\Eddy Snowy Scene.jpg
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\Ganuk Snowy Scene.jpg
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\Henry at the Lake again.jpg
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\Henry at the Lake.jpg
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\Henry On Rock.jpg
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\Henry Wide.jpg
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\Inukshuk (2).jpg
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\Inukshuk Pool.jpg
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\Inukshuk Snowy Scene.jpg

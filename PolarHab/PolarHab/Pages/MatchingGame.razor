@@ -1,5 +1,66 @@
 ﻿<h3>MatchingGame</h3>
 
+<!--
+private void loadImage() {
+    Toolkit toolkit = Toolkit.getDefaultToolkit();
+    mapchipImage = toolkit.getImage(getClass().getClassLoader().getResource("image/mapchip.png"));
+}
+
+var Tile = function(x, y, face) {
+    this.x = x;
+    this.y = y;
+    this.size = 50;
+    this.face = face;
+    this.isFaceUp = false;
+    this.isMatch = false;
+};
+
+Tile.prototype.draw = function() {
+    fill(214, 247, 202);
+    strokeWeight(2);
+    rect(this.x, this.y, this.size, this.size, 10);
+    if (this.isFaceUp) {
+        image(this.face, this.x, this.y, this.size, this.size);
+    } else {
+        image(getImage("avatars/leaf-green"), this.x, this.y, this.size, this.size);
+    }
+};
+
+Tile.prototype.isUnderMouse = function(x, y) {
+    return x >= this.x && x <= this.x + this.size  &&
+        y >= this.y && y <= this.y + this.size;
+};
+
+// Global config
+var NUM_COLS = 5;
+var NUM_ROWS = 4;
+
+// Declare an array of all possible faces
+var faces = [
+    getImage("image/Henry at the Lake again.jpg"),
+    getImage("image/Inn"),
+    getImage("avatars/leafers-sapling"),
+    getImage("avatars/leafers-tree"),
+    getImage("avatars/leafers-ultimate"),
+    getImage("avatars/marcimus"),
+    getImage("avatars/mr-pants"),
+    getImage("avatars/mr-pink"),
+    getImage("avatars/old-spice-man"),
+    getImage("avatars/robot_female_1")
+];
+
+// Make an array which has 2 of each, then randomize it
+var possibleFaces = faces.slice(0);
+var selected = [];
+for (var i = 0; i < (NUM_COLS * NUM_ROWS) / 2; i++) {
+    // Randomly pick one from the array of remaining faces
+    var randomInd = floor(random(possibleFaces.length));
+    var face = possibleFaces[randomInd];
+    // Push twice onto array
+    selected.push(face);
+
+-->
+
 @code {
 
 }
