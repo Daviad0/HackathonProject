@@ -36,8 +36,9 @@
 </style>
 
 <div class="main" style="user-select:none">
+    <img src="images/PolarHabLogoVert.png" onclick="location.href='/'" style="width:48px;height:48px;position:absolute;top:6px;left:5px;z-index:3"/>
     <div class="top-row px-4" style="background-color:#dedede;z-index:2">
-        <button @onclick="TransferData" hidden>Transfer</button>
+        
         <span class="@addedProgessClasses" style="z-index:-1;background-color:lightseagreen;color:white;padding:5px;font-weight:600;font-family:'Century Gothic', Tahoma;border-radius:6px">+7.5%</span>
         <span class="shadow" style="background-color:mediumseagreen;color:white;padding:5px;padding-left:10px;padding-right:10px;border-radius:6px;font-weight:600;font-family:'Century Gothic',Tahoma">@((Math.Round(progress*100)).ToString()+"% a Polar Bear Wiz")</span>
         <span onclick="location.href='/certificate'" style="z-index:-1;background-color:mediumseagreen;color:white;padding:5px;font-weight:600;border-radius:6px;margin-left:10px;display:@(allCompleted? "inline":"none")">!!</span>
@@ -76,7 +77,7 @@
     {
         var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie");
         var cookies = result.Split("; ");
-        progress = (double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 13;
+        progress = (double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 15;
         if(progress >= 1)
         {
             allCompleted = true;

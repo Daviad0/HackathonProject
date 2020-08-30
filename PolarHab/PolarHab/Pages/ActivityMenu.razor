@@ -138,7 +138,7 @@
     else
     {
     <div>
-        <div onclick="location.href='/guided-exploration@(quizQuestions.ToArray()[(i*3)].QuestionKey)'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
+        <div onclick="location.href='/guided-exploration/@(quizQuestions.ToArray()[(i*3)].QuestionKey)'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
             <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma" class="nonhover">
                 @quizQuestions.ToArray()[(i*3)].QuestionName <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("quizCompleted-"+quizQuestions.ToArray()[(i*3)].CookieTag+"=true")? "inline" : "none")">Completed</span>
             </span>
@@ -201,6 +201,21 @@
         </div>
     </div>
     <br />
+    <div class="shadow" style="width:80%;padding:20px;border-radius:8px">
+        <span style="font-size:30px;font-family:'Century Gothic',Tahoma;font-weight:700">
+            Optional Content
+        </span>
+        <br />
+        <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma">
+            This isn't required to complete the lessons, but we highly reccommend it!
+        </span>
+    </div>
+    <br />
+    <div onclick="location.href='/ar'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
+        <span style="text-wrap:normal;font-family:'Century Gothic',Tahoma" class="nonhover">
+            echoAR Polar Bear <span style="background-color:deeppink;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:inline">Optional</span>
+        </span>
+    </div>
 </div>
 
 
