@@ -37,7 +37,7 @@
 
 <div class="main" style="user-select:none">
     <div class="top-row px-4">
-        <span class="@addedProgessClasses" style="z-index:-1;background-color:lightseagreen;color:white;padding:5px;font-weight:600;font-family:'Century Gothic';border-radius:6px">+10%</span>
+        <span class="@addedProgessClasses" style="z-index:-1;background-color:lightseagreen;color:white;padding:5px;font-weight:600;font-family:'Century Gothic';border-radius:6px">+8%</span>
         <span class="shadow" style="background-color:mediumseagreen;color:white;padding:5px;padding-left:10px;padding-right:10px;border-radius:6px;font-weight:600;font-family:'Century Gothic'">@((Math.Round(progress*100)).ToString()+"% a Polar Bear Wiz")</span>
     </div>
 
@@ -52,7 +52,7 @@
     {
         var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie");
         var cookies = result.Split("; ");
-        progress = (double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 10;
+        progress = (double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 12;
         this.StateHasChanged();
     }
     protected override async Task OnInitializedAsync()

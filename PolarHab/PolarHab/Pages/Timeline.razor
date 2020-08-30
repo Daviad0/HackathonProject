@@ -11,8 +11,8 @@
   }
 
 body {
-  background-color: #D8E0BB;
   font-family: 'Century Gothic';
+  background-color: white;
 }
 
 /* The actual timeline (the vertical ruler) */
@@ -38,7 +38,7 @@ body {
 .container {
   padding: 10px 40px;
   position: relative;
-  background-color: inherit;
+  background-color: white;
   width: 50%;
 }
 
@@ -139,6 +139,13 @@ body {
   left: 0%;
   }
 }
+
+    body::after {
+        content: '';
+        display: table;
+        clear: both;
+        background-color: black;
+    }
 </style>
 </head>
 <body>

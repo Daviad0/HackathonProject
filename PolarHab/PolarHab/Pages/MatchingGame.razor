@@ -1,66 +1,365 @@
-﻿<h3>MatchingGame</h3>
+﻿@page "/matching"
+@inject IJSRuntime JSRuntime;
 
-<!--
-private void loadImage() {
-    Toolkit toolkit = Toolkit.getDefaultToolkit();
-    mapchipImage = toolkit.getImage(getClass().getClassLoader().getResource("image/mapchip.png"));
-}
+<div style="text-align:center">
+    <table style="width:60%;display:inline-block">
+        <tr>
+            <td style="width:20%">
+                <div @onclick="(() => FlipCard(0))">
+                    <img style="width:160px;height:120px;border-radius:6px;display:@((allCards[0].CardState == CardState.NotSelected)? "inline-block": "none")" src="images/GrayCardBack.png"/>
+                    <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[0].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[0].CardState == CardState.Selected) || (allCards[0].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[0].ImageSRC)"/>
 
-var Tile = function(x, y, face) {
-    this.x = x;
-    this.y = y;
-    this.size = 50;
-    this.face = face;
-    this.isFaceUp = false;
-    this.isMatch = false;
-};
+                    <br />
+                    <span style="background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[0].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                    <span style="background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[0].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                    <span style="background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[0].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>
+                </div>
+            </td>
+            <td style="width:20%">
+                <div @onclick="(() => FlipCard(1))">
+                    <img style="width:160px;height:120px;border-radius:6px;display:@((allCards[1].CardState == CardState.NotSelected)? "inline-block": "none")" src="images/GrayCardBack.png"/>
+                    <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[1].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[1].CardState == CardState.Selected) || (allCards[1].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[1].ImageSRC)"/>
+                    <br />
+                    <span style="background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[1].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                    <span style="background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[1].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                    <span style="background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[1].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>
+                </div>
+            </td>
+            <td style="width:20%">
+                <div @onclick="(() => FlipCard(2))">
+                    <img style="width:160px;height:120px;border-radius:6px;display:@((allCards[2].CardState == CardState.NotSelected)? "inline-block": "none")" src="images/GrayCardBack.png"/>
+                    <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[2].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[2].CardState == CardState.Selected) || (allCards[2].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[2].ImageSRC)"/>
+                    <br />
+                    <span style="background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[2].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                    <span style="background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[2].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                    <span style="background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[2].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>
+                </div>
+            </td>
+            <td style="width:20%">
+                <div @onclick="(() => FlipCard(3))">
+                    <img style="width:160px;height:120px;border-radius:6px;display:@((allCards[3].CardState == CardState.NotSelected)? "inline-block": "none")" src="images/GrayCardBack.png"/>
+                    <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[3].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[3].CardState == CardState.Selected) || (allCards[3].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[3].ImageSRC)"/>
+                    <br />
+                    <span style="background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[3].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                    <span style="background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[3].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                    <span style="background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[3].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>
+                </div>
+            </td>
+            <td style="width:20%">
+                <div @onclick="(() => FlipCard(4))">
+                    <img style="width:160px;height:120px;border-radius:6px;display:@((allCards[4].CardState == CardState.NotSelected)? "inline-block": "none")" src="images/GrayCardBack.png"/>
+                    <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[4].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[4].CardState == CardState.Selected) || (allCards[4].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[4].ImageSRC)"/>
+                    <br />
+                    <span style="background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[4].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                    <span style="background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[4].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                    <span style="background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[4].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:20%">
+                <div @onclick="(() => FlipCard(5))">
+                    <img style="width:160px;height:120px;border-radius:6px;display:@((allCards[5].CardState == CardState.NotSelected)? "inline-block": "none")" src="images/GrayCardBack.png"/>
+                    <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[5].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[5].CardState == CardState.Selected) || (allCards[5].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[5].ImageSRC)"/>
+                    <br />
+                    <span style="background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[5].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                    <span style="background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[5].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                    <span style="background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[5].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>
+                </div>
+            </td>
+            <td style="width:20%">
+                <div @onclick="(() => FlipCard(6))">
+                    <img style="width:160px;height:120px;border-radius:6px;display:@((allCards[6].CardState == CardState.NotSelected)? "inline-block": "none")" src="images/GrayCardBack.png"/>
+                    <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[6].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[6].CardState == CardState.Selected) || (allCards[6].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[6].ImageSRC)"/>
+                    <br />
+                    <span style="background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[6].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                    <span style="background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[6].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                    <span style="background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[6].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>
+                </div>
+            </td>
+            <td style="width:20%">
+                <div @onclick="(() => FlipCard(7))">
+                    <img style="width:160px;height:120px;border-radius:6px;display:@((allCards[7].CardState == CardState.NotSelected)? "inline-block": "none")" src="images/GrayCardBack.png"/>
+                    <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[7].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[7].CardState == CardState.Selected) || (allCards[7].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[7].ImageSRC)"/>
+                    <br />
+                    <span style="background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[7].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                    <span style="background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[7].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                    <span style="background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[7].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>
+                </div>
+            </td>
+            <td style="width:20%">
+                <div @onclick="(() => FlipCard(8))">
+                    <img style="width:160px;height:120px;border-radius:6px;display:@((allCards[8].CardState == CardState.NotSelected)? "inline-block": "none")" src="images/GrayCardBack.png"/>
+                    <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[8].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[8].CardState == CardState.Selected) || (allCards[8].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[8].ImageSRC)"/>
+                    <br />
+                    <span style="background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[8].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                    <span style="background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[8].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                    <span style="background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[8].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>
+                </div>
+            </td>
+            <td style="width:20%">
+                <div @onclick="(() => FlipCard(9))">
+                    <img style="width:160px;height:120px;border-radius:6px;display:@((allCards[9].CardState == CardState.NotSelected)? "inline-block": "none")" src="images/GrayCardBack.png"/>
+                    <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[9].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[9].CardState == CardState.Selected) || (allCards[9].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[9].ImageSRC)"/>
+                    <br />
+                    <span style="background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[9].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                    <span style="background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[9].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                    <span style="background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[9].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:20%">
+                <div @onclick="(() => FlipCard(10))">
+                    <img style="width:160px;height:120px;border-radius:6px;display:@((allCards[10].CardState == CardState.NotSelected)? "inline-block": "none")" src="images/GrayCardBack.png"/>
+                    <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[10].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[10].CardState == CardState.Selected) || (allCards[10].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[10].ImageSRC)"/>
+                    <br />
+                    <span style="background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[10].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                    <span style="background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[10].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                    <span style="background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[10].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>
+                </div>
+            </td>
+            <td style="width:20%">
+                <div @onclick="(() => FlipCard(11))">
+                    <img style="width:160px;height:120px;border-radius:6px;display:@((allCards[11].CardState == CardState.NotSelected)? "inline-block": "none")" src="images/GrayCardBack.png"/>
+                    <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[11].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[11].CardState == CardState.Selected) || (allCards[11].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[11].ImageSRC)"/>
+                    <br />
+                    <span style="background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[11].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                    <span style="background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[11].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                    <span style="background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[11].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>
+                </div>
+            </td>
+            <td style="width:20%">
+                <div @onclick="(() => FlipCard(12))">
+                    <img style="width:160px;height:120px;border-radius:6px;display:@((allCards[12].CardState == CardState.NotSelected)? "inline-block": "none")" src="images/GrayCardBack.png"/>
+                    <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[12].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[12].CardState == CardState.Selected) || (allCards[12].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[12].ImageSRC)"/>
+                    <br />
+                    <span style="background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[12].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                    <span style="background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[12].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                    <span style="background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[12].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>
+                </div>
+            </td>
+            <td style="width:20%">
+                <div @onclick="(() => FlipCard(13))">
+                    <img style="width:160px;height:120px;border-radius:6px;display:@((allCards[13].CardState == CardState.NotSelected)? "inline-block": "none")" src="images/GrayCardBack.png"/>
+                    <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[13].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[13].CardState == CardState.Selected) || (allCards[13].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[13].ImageSRC)"/>
+                    <br />
+                    <span style="background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[13].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                    <span style="background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[13].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                    <span style="background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[13].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>
+                </div>
+            </td>
+            <td style="width:20%">
+                <div @onclick="(() => FlipCard(14))">
+                    <img style="width:160px;height:120px;border-radius:6px;display:@((allCards[14].CardState == CardState.NotSelected)? "inline-block": "none")" src="images/GrayCardBack.png"/>
+                    <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[14].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[14].CardState == CardState.Selected) || (allCards[14].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[14].ImageSRC)"/>
+                    <br />
+                    <span style="background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[14].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                    <span style="background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[14].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                    <span style="background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[14].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:20%">
+                <div @onclick="(() => FlipCard(15))">
+                    <img style="width:160px;height:120px;border-radius:6px;display:@((allCards[15].CardState == CardState.NotSelected)? "inline-block": "none")" src="images/GrayCardBack.png"/>
+                    <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[15].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[15].CardState == CardState.Selected) || (allCards[15].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[15].ImageSRC)"/>
+                    <br />
+                    <span style="background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[15].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                    <span style="background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[15].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                    <span style="background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[15].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>
+                </div>
+            </td>
+            <td style="width:20%">
+                <div @onclick="(() => FlipCard(16))">
+                    <img style="width:160px;height:120px;border-radius:6px;display:@((allCards[16].CardState == CardState.NotSelected)? "inline-block": "none")" src="images/GrayCardBack.png"/>
+                    <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[16].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[16].CardState == CardState.Selected) || (allCards[16].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[16].ImageSRC)"/>
+                    <br />
+                    <span style="background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[16].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                    <span style="background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[16].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                    <span style="background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[16].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>
+                </div>
+            </td>
+            <td style="width:20%">
+                <div @onclick="(() => FlipCard(17))">
+                    <img style="width:160px;height:120px;border-radius:6px;display:@((allCards[17].CardState == CardState.NotSelected)? "inline-block": "none")" src="images/GrayCardBack.png"/>
+                    <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[17].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[17].CardState == CardState.Selected) || (allCards[17].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[17].ImageSRC)"/>
+                    <br />
+                    <span style="background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[17].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                    <span style="background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[17].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                    <span style="background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[17].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>
+                </div>
+            </td>
+            <td style="width:20%">
+                <div @onclick="(() => FlipCard(18))">
+                    <img style="width:160px;height:120px;border-radius:6px;display:@((allCards[18].CardState == CardState.NotSelected)? "inline-block": "none")" src="images/GrayCardBack.png"/>
+                    <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[18].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[18].CardState == CardState.Selected) || (allCards[18].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[18].ImageSRC)"/>
+                    <br />
+                    <span style="background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[18].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                    <span style="background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[18].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                    <span style="background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[18].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>
+                </div>
+            </td>
+            <td style="width:20%">
+                <div @onclick="(() => FlipCard(19))">
+                    <img style="width:160px;height:120px;border-radius:6px;display:@((allCards[19].CardState == CardState.NotSelected)? "inline-block": "none")" src="images/GrayCardBack.png"/>
+                    <img style="width:160px;height:120px;border-radius:6px;border:@((allCards[19].CardState == CardState.Completed)? "3px solid dodgerblue": "3px solid #37393f");display:@(((allCards[19].CardState == CardState.Selected) || (allCards[19].CardState == CardState.Completed))? "inline-block": "none")" src="images/@(allCards[19].ImageSRC)"/>
+                    <br />
+                    <span style="background-color:tomato;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[19].CardState == CardState.NotSelected)? "inline-block": "none")">Not Selected</span>
+                    <span style="background-color:mediumseagreen;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[19].CardState == CardState.Selected)? "inline-block": "none")">Selected</span>
+                    <span style="background-color:dodgerblue;color:white;border-radius:4px;padding:5px;margin:5px;display:@((allCards[19].CardState == CardState.Completed)? "inline-block": "none")">Completed</span>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
 
-Tile.prototype.draw = function() {
-    fill(214, 247, 202);
-    strokeWeight(2);
-    rect(this.x, this.y, this.size, this.size, 10);
-    if (this.isFaceUp) {
-        image(this.face, this.x, this.y, this.size, this.size);
-    } else {
-        image(getImage("avatars/leaf-green"), this.x, this.y, this.size, this.size);
-    }
-};
 
-Tile.prototype.isUnderMouse = function(x, y) {
-    return x >= this.x && x <= this.x + this.size  &&
-        y >= this.y && y <= this.y + this.size;
-};
 
-// Global config
-var NUM_COLS = 5;
-var NUM_ROWS = 4;
-
-// Declare an array of all possible faces
-var faces = [
-    getImage("image/Henry at the Lake again.jpg"),
-    getImage("image/Inn"),
-    getImage("avatars/leafers-sapling"),
-    getImage("avatars/leafers-tree"),
-    getImage("avatars/leafers-ultimate"),
-    getImage("avatars/marcimus"),
-    getImage("avatars/mr-pants"),
-    getImage("avatars/mr-pink"),
-    getImage("avatars/old-spice-man"),
-    getImage("avatars/robot_female_1")
-];
-
-// Make an array which has 2 of each, then randomize it
-var possibleFaces = faces.slice(0);
-var selected = [];
-for (var i = 0; i < (NUM_COLS * NUM_ROWS) / 2; i++) {
-    // Randomly pick one from the array of remaining faces
-    var randomInd = floor(random(possibleFaces.length));
-    var face = possibleFaces[randomInd];
-    // Push twice onto array
-    selected.push(face);
-
--->
 
 @code {
+    public GameState currentState { get; set; }
+    public int[] cardsSelected = new int[2] {0, 0};
 
+    public CardType[] allCards = new CardType[20]
+    {
+        new CardType(){ CardState = CardState.NotSelected, ImageSRC = "Henry at the Lake again.jpg", Classes = "shadow"},
+        new CardType(){ CardState = CardState.NotSelected, ImageSRC = "Henry at the Lake again.jpg", Classes = "shadow"},
+        new CardType(){ CardState = CardState.NotSelected, ImageSRC = "Inukshuk Snowy Scene.jpg", Classes = "shadow"},
+        new CardType(){ CardState = CardState.NotSelected, ImageSRC = "Inukshuk Snowy Scene.jpg", Classes = "shadow"},
+        new CardType(){ CardState = CardState.NotSelected, ImageSRC = "Inukshuk (2).jpg", Classes = "shadow"},
+        new CardType(){ CardState = CardState.NotSelected, ImageSRC = "Inukshuk (2).jpg", Classes = "shadow"},
+        new CardType(){ CardState = CardState.NotSelected, ImageSRC = "Inukshuk Pool.jpg", Classes = "shadow"},
+        new CardType(){ CardState = CardState.NotSelected, ImageSRC = "Inukshuk Pool.jpg", Classes = "shadow"},
+        new CardType(){ CardState = CardState.NotSelected, ImageSRC = "Henry Wide.jpg", Classes = "shadow"},
+        new CardType(){ CardState = CardState.NotSelected, ImageSRC = "Henry Wide.jpg", Classes = "shadow"},
+        new CardType(){ CardState = CardState.NotSelected, ImageSRC = "Henry On Rock.jpg", Classes = "shadow"},
+        new CardType(){ CardState = CardState.NotSelected, ImageSRC = "Henry On Rock.jpg", Classes = "shadow"},
+        new CardType(){ CardState = CardState.NotSelected, ImageSRC = "longpolarbear2.png", Classes = "shadow"},
+        new CardType(){ CardState = CardState.NotSelected, ImageSRC = "longpolarbear2.png", Classes = "shadow"},
+        new CardType(){ CardState = CardState.NotSelected, ImageSRC = "Henry at the Lake.jpg", Classes = "shadow"},
+        new CardType(){ CardState = CardState.NotSelected, ImageSRC = "Henry at the Lake.jpg", Classes = "shadow"},
+        new CardType(){ CardState = CardState.NotSelected, ImageSRC = "Ganuk Snowy Scene.jpg", Classes = "shadow"},
+        new CardType(){ CardState = CardState.NotSelected, ImageSRC = "Ganuk Snowy Scene.jpg", Classes = "shadow"},
+        new CardType(){ CardState = CardState.NotSelected, ImageSRC = "Eddy Snowy Scene.jpg", Classes = "shadow"},
+        new CardType(){ CardState = CardState.NotSelected, ImageSRC = "Eddy Snowy Scene.jpg", Classes = "shadow"},
+    };
+
+    public enum Images
+    {
+        None,
+        HenryAtLake,
+        InukshukSnowy,
+        Inukshuk,
+        InukshukPool,
+        HenryWide,
+        HenryOnRock,
+        LongPolarBear,
+        HenryAtTheLake,
+        GanukSnowyScene,
+        EddySnowScene
+    }
+    public enum GameState
+    {
+        FirstCard,
+        SecondCard,
+        Animation
+    }
+    public enum CardState
+    {
+        NotSelected,
+        Selected,
+        Completed
+    }
+    public void FlipCard(int indexofpassedin)
+    {
+        if (allCards[indexofpassedin].CardState != CardState.Completed)
+        {
+            switch (currentState)
+            {
+                case GameState.FirstCard:
+                    cardsSelected[0] = indexofpassedin;
+                    currentState = GameState.SecondCard;
+                    allCards[indexofpassedin].CardState = CardState.Selected;
+                    this.StateHasChanged();
+                    break;
+                case GameState.SecondCard:
+                    cardsSelected[1] = indexofpassedin;
+                    allCards[indexofpassedin].CardState = CardState.Selected;
+                    this.StateHasChanged();
+                    CheckSelection();
+                    break;
+            }
+        }
+
+    }
+    public async void CheckSelection()
+    {
+        currentState = GameState.Animation;
+        if(cardsSelected[0] != cardsSelected[1])
+        {
+            if(allCards[cardsSelected[0]].CardState == allCards[cardsSelected[1]].CardState && allCards[cardsSelected[0]].ImageSRC == allCards[cardsSelected[1]].ImageSRC)
+            {
+
+                allCards[cardsSelected[0]].CardState = CardState.Completed;
+                allCards[cardsSelected[1]].CardState = CardState.Completed;
+                currentState = GameState.FirstCard;
+                this.StateHasChanged();
+                if(allCards.Where(x => x.CardState == CardState.NotSelected || x.CardState == CardState.Selected).ToList().Count < 1)
+                {
+                    CompletedAddCookie();
+                }
+            }
+            else
+            {
+                await Task.Delay(2000);
+                allCards[cardsSelected[0]].CardState = CardState.NotSelected;
+                allCards[cardsSelected[1]].CardState = CardState.NotSelected;
+                currentState = GameState.FirstCard;
+                this.StateHasChanged();
+            }
+        }
+        else
+        {
+            allCards[cardsSelected[0]].CardState = CardState.NotSelected;
+            currentState = GameState.FirstCard;
+            this.StateHasChanged();
+        }
+
+    }
+    public class CardType
+    {
+        public CardState CardState { get; set; }
+        public string ImageSRC { get; set; }
+        public string Classes { get; set; }
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        var iterationsofrandomness = new Random().Next(100, 300);
+        var randomnumgen = new Random();
+        for(int i = iterationsofrandomness;i > 0; i--)
+        {
+            var pos1 = randomnumgen.Next(0, 20);
+            var pos2 = randomnumgen.Next(0, 20);
+            var pos1value = allCards[pos1];
+            var pos2value = allCards[pos2];
+            allCards[pos1] = pos2value;
+            allCards[pos2] = pos1value;
+        }
+    }
+    public async void CompletedAddCookie()
+    {
+
+        await JSRuntime.InvokeAsync<string>("blazorExtensions.WriteCookie", "activityCompleted-matching", "true", 100);
+        this.StateHasChanged();
+        EXPSystem();
+    }
+    public async void EXPSystem()
+    {
+        var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie");
+        var cookies = result.Split("; ");
+        PolarHab.Data.RMessenger.OnChangeProgressBar((double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 12);
+        this.StateHasChanged();
+    }
 }

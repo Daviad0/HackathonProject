@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\BFQuiz.razor" />
+    <Content Remove="Pages\Buzzfeeduwu.razor" />
     <Content Remove="wwwroot\images\NewFile.txt" />
   </ItemGroup>
 
@@ -37,6 +39,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\images\Ganuk Snowy Scene.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\GrayCardBack.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\images\Henry at the Lake again.jpg">

@@ -1,4 +1,4 @@
-﻿@page "/livestream"
+﻿@page "/videos"
 
 <html lang="en">
 <head>
@@ -20,7 +20,7 @@ body {
 .header {
   padding: 80px;
   text-align: center;
-  background: #1abc9c;
+  background: #86a3c3;
   color: white;
 }
 
@@ -29,40 +29,6 @@ body {
   font-size: 40px;
 }
 
-.navbar {
-  overflow: hidden;
-  background-color: #333;
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
-}
-
-/* Style the navigation bar links */
-.navbar a {
-  float: left;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 20px;
-  text-decoration: none;
-}
-
-
-
-
-/* Change color on hover */
-    .navbar a:hover {
-        background-color: #8c8c8c;
-      /*  color: black; */
-      font-weight:bold;
-
-    }
-
-/* Active/current link */
-    .navbar a.active {
-        background-color: #666;
-        color: white;
-    }
 
 /* Column container */
 .row {  
@@ -78,7 +44,56 @@ body {
   flex: 70%;
   background-color: white;
 }
-
+/* nav bar */
+    nav {
+        background-color: #333;
+    }
+/* list of pages */
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+/* nav list items */
+        nav li {
+            display: inline-block;
+            margin-left: 70px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            position: relative;
+            transition: letter-spacing 0.5s;
+        }
+/* nav text */
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Century Gothic';
+            font-size: 20px;
+            transition: letter-spacing 0.5s;
+        }
+ /* nav active */
+            nav a:hover {
+                letter-spacing: 1px;
+                transition: all ease-in-out 250ms;
+                color: white;
+                text-decoration: none;
+            }
+/* nav top line */
+            nav a::before {
+                content: '';
+                display: block;
+                height: 5px;
+                background-color: white;
+                position: absolute;
+                width: 0%;
+                top: 0;
+                transition: all ease-in-out 250ms;
+            }
+/* nav top line active */
+            nav a:hover::before {
+                width: 95%;
+            }
 
 </style>
 </head>
@@ -89,24 +104,28 @@ body {
   <p>A collection of short videos about Polar Bears</p>
 </div>
 
-<div class="navbar">
-  <a href="#" class="active">Home</a>
-  <a href="https://www.youtube.com/watch?v=1zRGzlWqce4">Video 1</a>
-  <a href="https://www.youtube.com/watch?v=XdCaBF8NJ00">Video 2</a>
-  <a href="https://www.youtube.com/watch?v=QHaJdznlRBg" class="right">Video 3</a>
-</div>
+<nav>
+    <ul>
+        <li><a href="https://localhost:44370/">Home</a></li>
+        <li><a href="https://localhost:44370/menu">Activities</a></li>
+        <li><a href="https://localhost:44370/climate">About Climate Change</a></li>
+        <li><a href="https://localhost:44370/videos">More Videos</a></li>
+        <li><a href="https://localhost:44370/timeline">Timeline</a></li>
+        <li><a href="https://localhost:44370/about">About</a></li>
+    </ul>
+</nav>
   
   <div class="main">
     <h2>Video One</h2>
-    <h5>this video is about shalkfjfd</h5>
+    <h5>This is a short 4 minute video talking about some fun facts about polar bears.</h5>
    <iframe width="560" height="315" src="https://www.youtube.com/embed/1zRGzlWqce4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <br>
     <h2>Video Two</h2>
-    <h5>this video is about akshlgfdkj</h5>
+    <h5> Another, even shorter video (~1 minute) also talking about a couple fun facts. There are many unique facts that you can learn about Polar Bears through this!</h5>
    <iframe width="560" height="315" src="https://www.youtube.com/embed/XdCaBF8NJ00" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br>
     <h2>Video Three</h2>
-    <h5>this video is about akshlgfdkj</h5>
+    <h5>A 10 minute short film about 2 male polar bears. This video covers the importance of winter and the first big freeze and how global warming is affecting the ice that grows over the Arctic Ocean every year. It also covers a little bit of a bear's yearly schedule.</h5>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/QHaJdznlRBg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 

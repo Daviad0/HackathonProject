@@ -75,13 +75,27 @@
     <br />
     <div class="shadow" style="width:80%;padding:20px;border-radius:8px">
         <span style="font-size:30px;font-family:'Century Gothic';font-weight:700">
-            Matching Game
+            Interactive Activities
         </span>
         <br />
         <span style="text-wrap:normal;font-family:'Century Gothic'">
-            See the 4 polar bears of the Canadian Polar Bear Habitat while testing your memory.
+            See the 4 polar bears of the Canadian Polar Bear Habitat while testing your memory and skills.
         </span>
     </div>
+    <br />
+    <div>
+        <div onclick="location.href='/matching'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
+            <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
+                Memory Matching <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("activityCompleted-matching=true")? "inline" : "none")">Completed</span>
+            </span>
+        </div>
+        <div onclick="location.href='/findoutquiz'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
+            <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
+                Which Bear are you? <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("activityCompleted-findout=true")? "inline" : "none")">Completed</span>
+            </span>
+        </div>
+    </div>
+    
     <br />
     <div class="shadow" style="width:80%;padding:20px;border-radius:8px">
         <span style="font-size:30px;font-family:'Century Gothic';font-weight:700">
@@ -99,8 +113,6 @@
                 Word Search <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("activityCompleted-wordsearch=true")? "inline" : "none")">Completed</span>
             </span>
         </div>
-    </div>
-    <div>
         <div onclick="location.href='/coloringpages'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
             <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
                 Coloring Pages <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("activityCompleted-coloringpages=true")? "inline" : "none")">Completed</span>
