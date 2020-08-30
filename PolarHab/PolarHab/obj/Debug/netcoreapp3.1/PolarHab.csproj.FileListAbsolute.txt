@@ -245,3 +245,8 @@ C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcore
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\About.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\BearNames.razor.g.cs
 C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\obj\Debug\netcoreapp3.1\Razor\Pages\BearNames.razor.g.cs
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\matchingmatch.wav
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\bear_eddy.png
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\bear_ganuk.png
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\bear_henry.png
+C:\Users\djree\source\repos\HackathonProject\PolarHab\PolarHab\bin\Debug\netcoreapp3.1\wwwroot\images\bear_inukshuk.png

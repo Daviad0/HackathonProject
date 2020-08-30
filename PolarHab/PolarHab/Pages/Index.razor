@@ -2,7 +2,56 @@
 <html lang="en">
 <head>
 <style>
-
+    /* nav bar */
+    nav {
+        background-color: #333;
+    }
+        /* list of pages */
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+        /* nav list items */
+        nav li {
+            display: inline-block;
+            margin-left: 70px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            position: relative;
+            transition: letter-spacing 0.5s;
+        }
+        /* nav text */
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Century Gothic';
+            font-size: 20px;
+            transition: letter-spacing 0.5s;
+        }
+            /* nav active */
+            nav a:hover {
+                letter-spacing: 1px;
+                transition: all ease-in-out 250ms;
+                color: white;
+                text-decoration: none;
+            }
+            /* nav top line */
+            nav a::before {
+                content: '';
+                display: block;
+                height: 5px;
+                background-color: white;
+                position: absolute;
+                width: 0%;
+                top: 0;
+                transition: all ease-in-out 250ms;
+            }
+            /* nav top line active */
+            nav a:hover::before {
+                width: 95%;
+            }
 body {
 	font-family: 'Century Gothic'; 
 	margin: 0
@@ -13,7 +62,7 @@ body {
 	text-align: center;
 	background: #86a3c3;
 	color: white;
-    border-radius:10px;
+    border-radius:10px,10px,0px,0px;
 }
 
 .header h1{
@@ -69,24 +118,37 @@ img {
 </head>
 <body>
 
-<div class= "header">
+    <div class="header">
         <h1> Welcome to PolarHab </h1>
-</div>
-    <br/>
-   <div class="polarbear" style="text-align:center">
-		<img src="images/HomePageImage.png" style="display:inline-block"/>
-	</div>
-   <br>
-   <br>
-   
-   <div class="boxed" width="200" height="300">
-       <h3>INFORMATION ABOUT THE ORGANIZATION</h3>
-       <p>The Canadian Polar Bear Habitat is a registered non-profit organization whose goal is to promote the sustainability of polar bear habitats through education, research, and edu-tourism. The organization currently houses 4 polar bears named, Eddy, Henry, Inukshuk, and Ganuk. They live on 24 acres of a natural subarctic environment where they live as close to nature as possible.
+    </div>
 
-The organization is currently working with organizations such as the World Wildlife Fund (WWF) and the National Oceanic and Atmospheric Administration (NOAA) to research more about the polars bears. They use these observations and data sets to better understand how climate change affects how the polar bears live in the wild.
+    <nav>
+        <ul>
+            <li><a href="https://localhost:44370/">Home</a></li>
+            <li><a href="https://localhost:44370/menu">Activities</a></li>
+            <li><a href="https://localhost:44370/climate">About Climate Change</a></li>
+            <li><a href="https://localhost:44370/videos">More Videos</a></li>
+            <li><a href="https://localhost:44370/timeline">Timeline</a></li>
+            <li><a href="https://localhost:44370/about">About</a></li>
+        </ul>
+    </nav>
 
-They also conduct tours and other educational experiences to communities around the world, helping more people understand today’s circumstances and how the polar bears are being affected negatively because of them.
-</p>
+    <br />
+    <div class="polarbear" style="text-align:center">
+        <img src="images/HomePageImage.png" style="display:inline-block" />
+    </div>
+    <br>
+    <br>
+
+    <div class="boxed" width="200" height="300">
+        <h3>INFORMATION ABOUT THE ORGANIZATION</h3>
+        <p>
+            The Canadian Polar Bear Habitat is a registered non-profit organization whose goal is to promote the sustainability of polar bear habitats through education, research, and edu-tourism. The organization currently houses 4 polar bears named, Eddy, Henry, Inukshuk, and Ganuk. They live on 24 acres of a natural subarctic environment where they live as close to nature as possible.
+
+            The organization is currently working with organizations such as the World Wildlife Fund (WWF) and the National Oceanic and Atmospheric Administration (NOAA) to research more about the polars bears. They use these observations and data sets to better understand how climate change affects how the polar bears live in the wild.
+
+            They also conduct tours and other educational experiences to communities around the world, helping more people understand today’s circumstances and how the polar bears are being affected negatively because of them.
+        </p>
     </div>
     <br>
     <br>

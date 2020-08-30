@@ -37,22 +37,31 @@
 
 <div class="main" style="user-select:none">
     <div class="top-row px-4">
+        
         <span class="@addedProgessClasses" style="z-index:-1;background-color:lightseagreen;color:white;padding:5px;font-weight:600;font-family:'Century Gothic';border-radius:6px">+8%</span>
         <span class="shadow" style="background-color:mediumseagreen;color:white;padding:5px;padding-left:10px;padding-right:10px;border-radius:6px;font-weight:600;font-family:'Century Gothic'">@((Math.Round(progress*100)).ToString()+"% a Polar Bear Wiz")</span>
+        <span onclick="location.href='/certificate'" style="z-index:-1;background-color:mediumseagreen;color:white;padding:5px;font-weight:600;border-radius:6px;margin-left:10px;display:@(allCompleted? "inline":"none")">!!</span>
     </div>
 
     <div class="content px-4">
         @Body
     </div>
+    
 </div>
+
 @code{
     public double progress = 0;
+    public bool allCompleted = false;
     public string addedProgessClasses = "noaddedprogress";
     public async void EXPSystem()
     {
         var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie");
         var cookies = result.Split("; ");
         progress = (double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 12;
+        if(progress >= 1)
+        {
+            allCompleted = true;
+        }
         this.StateHasChanged();
     }
     protected override async Task OnInitializedAsync()
@@ -72,9 +81,9 @@
                     addedProgessClasses = "noaddedprogress";
                     this.StateHasChanged();
                 }
-                
+
             });
-    
+
 
         };
 

@@ -3,18 +3,91 @@
 
 
 <style>
-    .activity{
-        background-color:#f1f1f1;
+    header {
+        padding: 80px;
+        text-align: center;
+        background: #86a3c3;
+        color: white;
+    }
+    /* nav bar */
+    nav {
+        background-color: #333;
+        margin-bottom: 25px;
+    }
+        /* list of pages */
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+        /* nav list items */
+        nav li {
+            display: inline-block;
+            margin-left: 70px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            position: relative;
+            transition: letter-spacing 0.5s;
+        }
+        /* nav text */
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Century Gothic';
+            font-size: 20px;
+            transition: letter-spacing 0.5s;
+        }
+            /* nav active */
+            nav a:hover {
+                letter-spacing: 1px;
+                transition: all ease-in-out 250ms;
+                color: white;
+                text-decoration: none;
+            }
+            /* nav top line */
+            nav a::before {
+                content: '';
+                display: block;
+                height: 5px;
+                background-color: white;
+                position: absolute;
+                width: 0%;
+                top: 0;
+                transition: all ease-in-out 250ms;
+            }
+            /* nav top line active */
+            nav a:hover::before {
+                width: 95%;
+            }
+
+    .activity {
+        background-color: #f1f1f1;
         transition: background-color 0.5s;
     }
-    .activity:hover{
-        background-color:#e1e1e1;
-    }
+
+        .activity:hover {
+            background-color: #e1e1e1;
+        }
 </style>
+<header>
+<h1>Activities</h1>
+<p> Fun quizzes and games to learn more about polar bears!</p>
+</header>
+<nav>
+    <ul>
+        <li><a href="https://localhost:44370/">Home</a></li>
+        <li><a href="https://localhost:44370/menu">Activities</a></li>
+        <li><a href="https://localhost:44370/climate">About Climate Change</a></li>
+        <li><a href="https://localhost:44370/videos">More Videos</a></li>
+        <li><a href="https://localhost:44370/timeline">Timeline</a></li>
+        <li><a href="https://localhost:44370/about">About</a></li>
+    </ul>
+</nav>
 
 <div style="user-select:none">
     <div class="shadow" style="width:80%;padding:20px;border-radius:8px">
-        <span style="font-size:30px;font-family:'Century Gothic';font-weight:700">
+        <span class="header" style="font-size:30px;font-family:'Century Gothic';font-weight:700">
             Multiple Choice Exploration
         </span>
         <br />
@@ -25,53 +98,53 @@
     <br />
     @for(int i = 0;i < (int)Math.Ceiling((double)quizQuestions.Count/3); i++)
     {
-        if((quizQuestions.Count - (i*3)) > 2)
-        {
-            <div>
-                <div onclick="location.href='/guided-exploration/@(quizQuestions.ToArray()[(i*3)].QuestionKey)'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
-                    <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
-                        @quizQuestions.ToArray()[(i*3)].QuestionName <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("quizCompleted-"+quizQuestions.ToArray()[(i*3)].CookieTag+"=true")? "inline" : "none")">Completed</span>
-                    </span>
-                </div>
-                <div onclick="location.href='/guided-exploration/@(quizQuestions.ToArray()[(i*3)+1].QuestionKey)'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
-                    <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
-                        @quizQuestions.ToArray()[(i*3)+1].QuestionName <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("quizCompleted-"+quizQuestions.ToArray()[(i*3)+1].CookieTag+"=true")? "inline" : "none")">Completed</span>
-                    </span>
-                </div>
-                <div onclick="location.href='/guided-exploration/@(quizQuestions.ToArray()[(i*3)+2].QuestionKey)'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
-                    <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
-                        @quizQuestions.ToArray()[(i*3)+2].QuestionName <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("quizCompleted-"+quizQuestions.ToArray()[(i*3)+2].CookieTag+"=true")? "inline" : "none")">Completed</span>
-                    </span>
-                </div>
-            </div>
-        }else if((quizQuestions.Count - (i*3)) > 1)
-        {
-            <div>
-                <div onclick="location.href='/guided-exploration/@(quizQuestions.ToArray()[(i*3)].QuestionKey)'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
-                    <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
-                        @quizQuestions.ToArray()[(i*3)].QuestionName <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("quizCompleted-"+quizQuestions.ToArray()[(i*3)].CookieTag+"=true")? "inline" : "none")">Completed</span>
-                    </span>
-                </div>
-                <div onclick="location.href='/guided-exploration/@(quizQuestions.ToArray()[(i*3)+1].QuestionKey)'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
-                    <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
-                        @quizQuestions.ToArray()[(i*3)+1].QuestionName <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("quizCompleted-"+quizQuestions.ToArray()[(i*3)+1].CookieTag+"=true")? "inline" : "none")">Completed</span>
-                    </span>
-                </div>
-            </div>
-        }
-        else
-        {
-            <div>
-                <div onclick="location.href='/guided-exploration@(quizQuestions.ToArray()[(i*3)].QuestionKey)'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
-                    <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
-                        @quizQuestions.ToArray()[(i*3)].QuestionName <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("quizCompleted-"+quizQuestions.ToArray()[(i*3)].CookieTag+"=true")? "inline" : "none")">Completed</span>
-                    </span>
-                </div>
-            </div>
-        }
+    if((quizQuestions.Count - (i*3)) > 2)
+    {
+    <div>
+        <div onclick="location.href='/guided-exploration/@(quizQuestions.ToArray()[(i*3)].QuestionKey)'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
+            <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
+                @quizQuestions.ToArray()[(i*3)].QuestionName <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("quizCompleted-"+quizQuestions.ToArray()[(i*3)].CookieTag+"=true")? "inline" : "none")">Completed</span>
+            </span>
+        </div>
+        <div onclick="location.href='/guided-exploration/@(quizQuestions.ToArray()[(i*3)+1].QuestionKey)'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
+            <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
+                @quizQuestions.ToArray()[(i*3)+1].QuestionName <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("quizCompleted-"+quizQuestions.ToArray()[(i*3)+1].CookieTag+"=true")? "inline" : "none")">Completed</span>
+            </span>
+        </div>
+        <div onclick="location.href='/guided-exploration/@(quizQuestions.ToArray()[(i*3)+2].QuestionKey)'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
+            <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
+                @quizQuestions.ToArray()[(i*3)+2].QuestionName <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("quizCompleted-"+quizQuestions.ToArray()[(i*3)+2].CookieTag+"=true")? "inline" : "none")">Completed</span>
+            </span>
+        </div>
+    </div>
+    }else if((quizQuestions.Count - (i*3)) > 1)
+    {
+    <div>
+        <div onclick="location.href='/guided-exploration/@(quizQuestions.ToArray()[(i*3)].QuestionKey)'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
+            <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
+                @quizQuestions.ToArray()[(i*3)].QuestionName <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("quizCompleted-"+quizQuestions.ToArray()[(i*3)].CookieTag+"=true")? "inline" : "none")">Completed</span>
+            </span>
+        </div>
+        <div onclick="location.href='/guided-exploration/@(quizQuestions.ToArray()[(i*3)+1].QuestionKey)'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
+            <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
+                @quizQuestions.ToArray()[(i*3)+1].QuestionName <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("quizCompleted-"+quizQuestions.ToArray()[(i*3)+1].CookieTag+"=true")? "inline" : "none")">Completed</span>
+            </span>
+        </div>
+    </div>
+    }
+    else
+    {
+    <div>
+        <div onclick="location.href='/guided-exploration@(quizQuestions.ToArray()[(i*3)].QuestionKey)'" class="shadow-sm activity" style="padding:10px;width:20%;text-align:center;cursor:pointer;border-radius:8px;display:inline-block;margin:10px">
+            <span style="text-wrap:normal;font-family:'Century Gothic'" class="nonhover">
+                @quizQuestions.ToArray()[(i*3)].QuestionName <span style="background-color:mediumseagreen;font-size:10px;margin:5px;border-radius:4px;color:white;padding:5px;display:@(activityCookies.Contains("quizCompleted-"+quizQuestions.ToArray()[(i*3)].CookieTag+"=true")? "inline" : "none")">Completed</span>
+            </span>
+        </div>
+    </div>
+    }
 
     }
-    
+
     <br />
     <div class="shadow" style="width:80%;padding:20px;border-radius:8px">
         <span style="font-size:30px;font-family:'Century Gothic';font-weight:700">
@@ -95,7 +168,7 @@
             </span>
         </div>
     </div>
-    
+
     <br />
     <div class="shadow" style="width:80%;padding:20px;border-radius:8px">
         <span style="font-size:30px;font-family:'Century Gothic';font-weight:700">
@@ -119,6 +192,7 @@
             </span>
         </div>
     </div>
+    <br />
 </div>
 
 
@@ -129,18 +203,18 @@
     public List<PolarHab.DbAssets.Question> quizQuestions = new List<DbAssets.Question>();
     public async void GetCookies()
     {
-        var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie", "quizCompleted-food", "true", 5);
-        var cookies = result.Split("; ");
-        activityCookies = cookies;
-        Console.WriteLine(cookies);
-        this.StateHasChanged();
+    var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie", "quizCompleted-food", "true", 5);
+    var cookies = result.Split("; ");
+    activityCookies = cookies;
+    Console.WriteLine(cookies);
+    this.StateHasChanged();
     }
     protected override async Task OnInitializedAsync()
     {
-        using(var db = new PolarHab.DbAssets.ActivityContext())
-        {
-            quizQuestions = db.Questions.ToList();
-        }
-        GetCookies();
+    using(var db = new PolarHab.DbAssets.ActivityContext())
+    {
+    quizQuestions = db.Questions.ToList();
+    }
+    GetCookies();
     }
 }

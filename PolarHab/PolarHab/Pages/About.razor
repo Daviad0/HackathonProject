@@ -9,7 +9,56 @@
 * {
   box-sizing: border-box;
 }
-
+    /* nav bar */
+    nav {
+        background-color: #333;
+    }
+        /* list of pages */
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+        /* nav list items */
+        nav li {
+            display: inline-block;
+            margin-left: 70px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            position: relative;
+            transition: letter-spacing 0.5s;
+        }
+        /* nav text */
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Century Gothic';
+            font-size: 20px;
+            transition: letter-spacing 0.5s;
+        }
+            /* nav active */
+            nav a:hover {
+                letter-spacing: 1px;
+                transition: all ease-in-out 250ms;
+                color: white;
+                text-decoration: none;
+            }
+            /* nav top line */
+            nav a::before {
+                content: '';
+                display: block;
+                height: 5px;
+                background-color: white;
+                position: absolute;
+                width: 0%;
+                top: 0;
+                transition: all ease-in-out 250ms;
+            }
+            /* nav top line active */
+            nav a:hover::before {
+                width: 95%;
+            }
 /* Style the body */
 body {
   font-family: 'Century Gothic';
@@ -53,7 +102,6 @@ body {
   -ms-flex: 70%; /* IE10 */
   flex: 70%;
   background-color: white;
-  padding: 20px;
 }
 
 
@@ -61,33 +109,47 @@ body {
 </head>
 <body>
 
-<div class="header">
-  <h1>About Us</h1>
-  <p>Works Cited, etc.</p>
-</div>
+    <div class="header">
+        <h1>About Us</h1>
+        <p>Works Cited, etc.</p>
+    </div>
 
-   <div class="main">
-    <h2>About This Website</h2>
-    <h5>Created for the KURIUSHACKS Hackathon by David Reeves, Anwesha Pathak, Hashir Mian, and Vasudha Marur</h5>
-    <p>This website was made as a solution to the prompt given by the Canadian Polar Bear Habitats. It has various interactive activites and games that can be enjoyed by people of all ages. Additionally, it also has a lot of educational material to help people learn more about the Polar Bears.</p>
-    <br>
-    <br>
-    <h2>Works Cited</h2>
-    <h5>A List of Sources Used</h5>
-    <p><b>Images</b></p>
-    <p>Dropbox for the Canadian Polar Bear Habitat: https://www.dropbox.com/sh/b0icoazpjnk3cp6/AAB25v8v5xm-iPaFNJp8gZERa/Photos?dl=0&subfolder_nav_tracking=1 </p>
-    <p>Polar Bear Image(Main Page): https://wallup.net/white-bear-tracks-snow-polar/ </p>
-    <p>One of Our Coloring Images: https://www.coloring-pages-kids.com/coloring-pages/animal-coloring-pages/zoo-animals-coloring-pages/zoo-animals-coloring-pages-images/zoo-animal-coloring-page-12.php </p>
-    <p><b>Informational Section</b></p>
-    <p>https://polarbearsinternational.org/polar-bears/life-cycle/</p>
-    <p>https://churchillpolarbears.org/about-polar-bears/polar-bear-life-cycle/</p>
-    <p>https://www.natgeokids.com/uk/discover/animals/general-animals/polar-bear-facts/ </p>
-    <p>https://www.wwf.org.uk/learn/fascinating-facts/polar-bears</p>
-    <p>https://www.livescience.com/27436-polar-bear-facts.html</p>
-    <p>https://seaworld.org/animals/all-about/polar-bear/senses/ </p>
-    <p>https://www.nationalgeographic.com/animals/mammals/b/brown-bear/</p>
+    <nav>
+        <ul>
+            <li><a href="https://localhost:44370/">Home</a></li>
+            <li><a href="https://localhost:44370/menu">Activities</a></li>
+            <li><a href="https://localhost:44370/climate">About Climate Change</a></li>
+            <li><a href="https://localhost:44370/videos">More Videos</a></li>
+            <li><a href="https://localhost:44370/timeline">Timeline</a></li>
+            <li><a href="https://localhost:44370/about">About</a></li>
+        </ul>
+    </nav>
 
-  </div>
+    <div class="main">
+        <h2>About This Website</h2>
+        <h5>Created for the KURIUSHACKS Hackathon by David Reeves, Anwesha Pathak, Hashir Mian, and Vasudha Marur</h5>
+        <p>This website was made as a solution to the prompt given by the Canadian Polar Bear Habitats. It has various interactive activites and games that can be enjoyed by people of all ages. Additionally, it also has a lot of educational material to help people learn more about the Polar Bears.</p>
+        <br>
+        <br>
+        <h2>Works Cited</h2>
+        <h5>A List of Sources Used</h5>
+        <p><b>Images</b></p>
+        <p>Dropbox for the Canadian Polar Bear Habitat: https://www.dropbox.com/sh/b0icoazpjnk3cp6/AAB25v8v5xm-iPaFNJp8gZERa/Photos?dl=0&subfolder_nav_tracking=1 </p>
+        <p>Polar Bear Image(Main Page): https://wallup.net/white-bear-tracks-snow-polar/ </p>
+        <p>One of Our Coloring Images: https://www.coloring-pages-kids.com/coloring-pages/animal-coloring-pages/zoo-animals-coloring-pages/zoo-animals-coloring-pages-images/zoo-animal-coloring-page-12.php </p>
+        <p>https://www.illustrationsof.com/1161628-royalty-free-polar-bear-clipart-illustration </p>
+        <p>https://www.jpl.nasa.gov/edu/teach/activity/whats-causing-sea-level-rise-land-ice-vs-sea-ice/</p>
+        <p>https://commons.wikimedia.org/wiki/File:Greenhouse-effect-t2.svg</p>
+        <p><b>Informational Section</b></p>
+        <p>https://polarbearsinternational.org/polar-bears/life-cycle/</p>
+        <p>https://churchillpolarbears.org/about-polar-bears/polar-bear-life-cycle/</p>
+        <p>https://www.natgeokids.com/uk/discover/animals/general-animals/polar-bear-facts/ </p>
+        <p>https://www.wwf.org.uk/learn/fascinating-facts/polar-bears</p>
+        <p>https://www.livescience.com/27436-polar-bear-facts.html</p>
+        <p>https://seaworld.org/animals/all-about/polar-bear/senses/ </p>
+        <p>https://www.nationalgeographic.com/animals/mammals/b/brown-bear/</p>
+
+    </div>
 
 </body>
 </html>

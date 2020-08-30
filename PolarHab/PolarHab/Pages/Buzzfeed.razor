@@ -66,6 +66,8 @@
             <div style="display:inline-block">
                 <input class="btn btn-primary" type="button" @onclick="prevQuestion" value="Prev Question" disabled="@((currentQuestion > 1)? false: true)" />
                 <input class="btn btn-primary" type="button" @onclick="nextQuestion" value="@((currentQuestion < (Questions.Count+1))? "Next Question":"Finish Quiz")" />
+                <br />
+                <input type="button" class="btn btn-primary" value="Back to Menu" onclick="location.href='/menu'" style="display:inline-block;width:200px;margin-top:10px" />
             </div>
         </div>
     </div>

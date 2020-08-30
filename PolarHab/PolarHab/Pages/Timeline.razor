@@ -8,11 +8,68 @@
 
 * {
   box-sizing: border-box;
-  }
+}
 
-body {
-  font-family: 'Century Gothic';
-  background-color: white;
+
+/* list of pages */
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+/* nav list items */
+        nav li {
+            display: inline-block;
+            margin-left: 70px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            position: relative;
+            transition: letter-spacing 0.5s;
+        }
+/* nav text */
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Century Gothic';
+            font-size: 20px;
+            transition: letter-spacing 0.5s;
+        }
+ /* nav active */
+            nav a:hover {
+                letter-spacing: 1px;
+                transition: all ease-in-out 250ms;
+                color: white;
+                text-decoration: none;
+            }
+/* nav top line */
+            nav a::before {
+                content: '';
+                display: block;
+                height: 5px;
+                background-color: white;
+                position: fixed;
+                width: 0%;
+                top: 0px;
+                left:0px;
+                transition: all ease-in-out 250ms;
+            }
+/* nav top line active */
+            nav a:hover::before {
+                width: 95%;
+            }
+
+/* Header/logo Title */
+.header {
+  text-align: center;
+  background: #86a3c3;
+  color: white;
+  height: 100;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 40px;
 }
 
 /* The actual timeline (the vertical ruler) */
@@ -36,9 +93,8 @@ body {
 
 /* Container around content */
 .container {
-  padding: 10px 40px;
   position: relative;
-  background-color: white;
+  background-color: #d8eobb;
   width: 50%;
 }
 
@@ -101,7 +157,6 @@ body {
 
 /* The actual content */
 .content {
-  padding: 20px 30px;
   background-color: white;
   position: relative;
   border-radius: 6px;
@@ -140,15 +195,24 @@ body {
   }
 }
 
-    body::after {
-        content: '';
-        display: table;
-        clear: both;
-        background-color: black;
-    }
 </style>
 </head>
 <body>
+
+<nav>
+    <ul>
+        <li><a href="https://localhost:44370/">Home</a></li>
+        <li><a href="https://localhost:44370/menu">Activities</a></li>
+        <li><a href="https://localhost:44370/climate">About Climate Change</a></li>
+        <li><a href="https://localhost:44370/videos">More Videos</a></li>
+        <li><a href="https://localhost:44370/timeline">Timeline</a></li>
+        <li><a href="https://localhost:44370/about">About</a></li>
+    </ul>
+</nav>
+
+<div class="header">
+  <h1>Timeline</h1>
+</div>
 
 <div class="timeline">
   <div class="container left">

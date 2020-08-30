@@ -22,11 +22,11 @@
 </style>
 <body>
     
-    <div>
-
+    <div style="text-align:center;font-family:'Century Gothic';display:@(allCompleted? "none" : "inline-block")">
+        <span>You haven't completed all of the tasks!</span>
     </div>
     
-    <div style="text-align:center;padding:0;margin:0">
+    <div style="text-align:center;padding:0;margin:0;display:@(allCompleted? "inline-block" : "none")">
         <div class="container" style="display:inline-block;padding:0px;margin:0px">
             <div id="capture" style="background-color:black;width:1000px;display:inline-block">
                 <img src="images/Certificate.png" style="display:inline-block;width:1000px">
@@ -45,7 +45,8 @@
         </div>
         
         
-        <button class="btn btn-primary" style="display:inline-block;width:1000px" disabled="@(StudentName != null? (StudentName.Length>0? false:true):true)" @onclick="CanvasUwu">Download Certificate</button>
+        <button class="btn btn-primary" style="display:inline-block;width:1000px;margin-bottom:10px" disabled="@(StudentName != null? (StudentName.Length>0? false:true):true)" @onclick="CanvasUwu">Download Certificate</button>
+        <input type="button" class="btn btn-primary" value="Back to Menu" onclick="location.href='/menu'" style="display:inline-block;width:1000px" />
     </div>
     
 </body>
@@ -53,6 +54,7 @@
 
 @code {
     public string StudentName { get; set; }
+    public bool allCompleted = false;
     private async void CanvasUwu()
     {
         await JSRuntime.InvokeVoidAsync("AddCanvas");
@@ -60,5 +62,19 @@
     private async void InputChange(KeyboardEventArgs e)
     {
         this.StateHasChanged();
+    }
+    public async void EXPSystem()
+    {
+        var result = await JSRuntime.InvokeAsync<string>("blazorExtensions.ReadCookie");
+        var cookies = result.Split("; ");
+        if(((double)cookies.ToList().Where(x => x.Contains("quizCompleted") || x.Contains("activityCompleted")).ToList().Count / 12) >= 1)
+        {
+            allCompleted = true;
+        }
+        this.StateHasChanged();
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        EXPSystem();
     }
 }
