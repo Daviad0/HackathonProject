@@ -21,6 +21,7 @@ body {
   text-align: center;
   background: #86a3c3;
   color: white;
+  border-radius: 15px 15px 0px 0px;
 }
 /* Increase the font size of the heading */
 .header h1 {
@@ -48,103 +49,172 @@ body {
   flex: 70%;
   background-color: white;
 }
+    /* nav bar */
+    nav {
+        background-color: #333;
+        border-radius: 0px 0px 15px 15px;
+    }
+        /* list of pages */
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+        /* nav list items */
+        nav li {
+            display: inline-block;
+            margin-left: 70px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            position: relative;
+            transition: letter-spacing 0.5s;
+            font-family:
+        }
+        /* nav text */
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Century Gothic',Tahoma;
+            font-size: 20px;
+            transition: letter-spacing 0.5s;
+        }
+            /* nav active */
+            nav a:hover {
+                letter-spacing: 1px;
+                transition: all ease-in-out 250ms;
+                color: white;
+                text-decoration: none;
+            }
+            /* nav top line */
+            nav a::before {
+                content: '';
+                display: block;
+                height: 5px;
+                background-color: white;
+                position: absolute;
+                width: 0%;
+                top: 0;
+                transition: all ease-in-out 250ms;
+            }
+            /* nav top line active */
+            nav a:hover::before {
+                width: 95%;
+            }
 </style>
 </head>
 <body>
 
-<div class="header">
-  <h1>Get to Know the Polar Bears!</h1>
-</div>
+    <div class="header">
+        <h1>Get to Know the Polar Bears!</h1>
+    </div>
 
-   <div class="main">
-    <div class="eddy">
-		<img src="images/bear_eddy.png" style="width:500px;height:500px" align= "left" />
-	</div>
-    <h2>Eddy</h2>
-    <p>Eddy is currently the oldest living bear at the Habitat. He was born into captivity on December 10, 1999. He came to the habitat due to renovations at his usual home, the Quebec Aquarium. Eddy likes to spend his time swimming and exploring the lake waters and shore. He also enjoys eating cattails that he pulls from the water.
-</p>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/menu">Activities</a></li>
+            <li><a href="/climate">About Climate Change</a></li>
+            <li><a href="/videos">More Videos</a></li>
+            <li><a href="/timeline">Timeline</a></li>
+            <li><a href="/bearnames">Bears</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-     <h2>Henry</h2>
-    <p>Henry is currently the youngest living bear at the Habitat. He was born in captivity on May 9, 2013 in Australia. After turning two, his mother started pushing him away and he moved to the Habitat in 2015. Henry is considered a sub-adult male. This means he’s technically not a cub anymore but he isn’t a full blown adult. Henry enjoys spending time with Ganuk and Inukshuk and will commonly be seen sparring with them.
-</p>
-<div class="henry">
-		<img src="images/bear_henry.png" style="width:500px;height:500px" align= "left" />
-	</div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-     <h2>Ganuk</h2>
-    <p>Ganuk is the son of Inukshuk and was born in captivity in Quebec on November 30, 2009. He moved to the Habitat in 2012. Ganuk is usually the heaviest bear at the Habitat usually weighing between 1,000-1,100 lbs. Ganuk likes to wander around and tends to stay inside when it starts to rain. Other than that and certain vegetables, Ganuk isn’t really picky.
-</p>
-<div class="ganuk">
-		<img src="images/bear_ganuk.png" style="width:500px;height:500px" align= "left" />
-	</div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-     <h2>Inukshuk</h2>
-    <p>Inukshuk was born sometime during the Winter Season of 2002-2003 in the wild. At only a couple months old he was orphaned. He has fathered 5 cubs total (Ganuk, Hudson, Taiga, Juno, and Humphrey). He started living at the Habitat part-time in 2012 and has been living full time since 2016. He enjoys eating beaver unlike the other bears at the Habitat.
-</p>
-<div class="inukshuk">
-		<img src="images/bear_inukshuk.png" style="width:500px;height:500px" align= "left" />
-	</div>
-<br>
-  </div>
+    <div class="main">
+        <div class="eddy">
+            <img src="images/bear_eddy.png" style="width:500px;height:500px" align="left" />
+        </div>
+        <h2>Eddy</h2>
+        <p>
+            Eddy is currently the oldest living bear at the Habitat. He was born into captivity on December 10, 1999. He came to the habitat due to renovations at his usual home, the Quebec Aquarium. Eddy likes to spend his time swimming and exploring the lake waters and shore. He also enjoys eating cattails that he pulls from the water.
+        </p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2>Henry</h2>
+        <p>
+            Henry is currently the youngest living bear at the Habitat. He was born in captivity on May 9, 2013 in Australia. After turning two, his mother started pushing him away and he moved to the Habitat in 2015. Henry is considered a sub-adult male. This means he’s technically not a cub anymore but he isn’t a full blown adult. Henry enjoys spending time with Ganuk and Inukshuk and will commonly be seen sparring with them.
+        </p>
+        <div class="henry">
+            <img src="images/bear_henry.png" style="width:500px;height:500px" align="left" />
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2>Ganuk</h2>
+        <p>
+            Ganuk is the son of Inukshuk and was born in captivity in Quebec on November 30, 2009. He moved to the Habitat in 2012. Ganuk is usually the heaviest bear at the Habitat usually weighing between 1,000-1,100 lbs. Ganuk likes to wander around and tends to stay inside when it starts to rain. Other than that and certain vegetables, Ganuk isn’t really picky.
+        </p>
+        <div class="ganuk">
+            <img src="images/bear_ganuk.png" style="width:500px;height:500px" align="left" />
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2>Inukshuk</h2>
+        <p>
+            Inukshuk was born sometime during the Winter Season of 2002-2003 in the wild. At only a couple months old he was orphaned. He has fathered 5 cubs total (Ganuk, Hudson, Taiga, Juno, and Humphrey). He started living at the Habitat part-time in 2012 and has been living full time since 2016. He enjoys eating beaver unlike the other bears at the Habitat.
+        </p>
+        <div class="inukshuk">
+            <img src="images/bear_inukshuk.png" style="width:500px;height:500px" align="left" />
+        </div>
+        <br>
+    </div>
 
 
 </body>
