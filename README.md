@@ -1,4 +1,6 @@
 # PolarHab
+https://polarhabjudging.azurewebsites.net/
+**Notice: Due to using the Azure Free Plan, we only have 60 min per day of computing time. All of the files help to create a .NET Core Blazor web app. The manual publish folder is also included in PolarHub/PolarHub/bin/Release. Thank you!**
 ## Home Screen
 Welcome to our project for the kuriushacks hackathon, with this website and a short implementation of EchoAR we provide a solution for the third prompt given to us by the Canadian Polar Bear Habitat. The home screen contains a basic overview of what CPBH is about.  You can find the navigation bar located directly under the header.
 ## Activities
