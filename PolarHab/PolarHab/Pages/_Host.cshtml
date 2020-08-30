@@ -33,6 +33,7 @@
 
     <script src="_framework/blazor.server.js"></script>
     <script src="scripts/html2canvas.js"></script>
+    <script src="scripts/reimg.js"></script>
     <script>
         window.blazorExtensions = {
 
@@ -81,6 +82,7 @@
                 link.download = downloadname;
                 link.href = canvas.toDataURL()
                 link.click();
+                
             });
         }
     </script>

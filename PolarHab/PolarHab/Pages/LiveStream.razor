@@ -1,5 +1,115 @@
-﻿<h3>LiveStream</h3>
+﻿@page "/livestream"
 
-@code {
-
+<html lang="en">
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
 }
+
+/* Style the body */
+body {
+  font-family: 'Century Gothic';
+  margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 80px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 40px;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+
+
+
+/* Change color on hover */
+    .navbar a:hover {
+        background-color: #8c8c8c;
+      /*  color: black; */
+      font-weight:bold;
+
+    }
+
+/* Active/current link */
+    .navbar a.active {
+        background-color: #666;
+        color: white;
+    }
+
+/* Column container */
+.row {  
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+/* Main column */
+.main {   
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  background-color: white;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Educational Videos</h1>
+  <p>A collection of short videos about Polar Bears</p>
+</div>
+
+<div class="navbar">
+  <a href="#" class="active">Home</a>
+  <a href="https://www.youtube.com/watch?v=1zRGzlWqce4">Video 1</a>
+  <a href="https://www.youtube.com/watch?v=XdCaBF8NJ00">Video 2</a>
+  <a href="https://www.youtube.com/watch?v=QHaJdznlRBg" class="right">Video 3</a>
+</div>
+  
+  <div class="main">
+    <h2>Video One</h2>
+    <h5>this video is about shalkfjfd</h5>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/1zRGzlWqce4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br>
+    <h2>Video Two</h2>
+    <h5>this video is about akshlgfdkj</h5>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/XdCaBF8NJ00" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
+    <h2>Video Three</h2>
+    <h5>this video is about akshlgfdkj</h5>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/QHaJdznlRBg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+
+</body>
+</html>

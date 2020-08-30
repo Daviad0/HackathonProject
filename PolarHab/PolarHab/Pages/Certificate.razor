@@ -1,0 +1,64 @@
+﻿@page "/certificate"
+@inject IJSRuntime JSRuntime;
+<style>
+    .centered {
+        position: absolute;
+        top: 49%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .date {
+        position: absolute;
+        top: 57.5%;
+        left: 38.5%;
+        transform: translate(-50%, -50%);
+    }
+
+    .container {
+        position: relative;
+        text-align: center;
+        color: black;
+    }
+</style>
+<body>
+    
+    <div>
+
+    </div>
+    
+    <div style="text-align:center;padding:0;margin:0">
+        <div class="container" style="display:inline-block;padding:0px;margin:0px">
+            <div id="capture" style="background-color:black;width:1000px;display:inline-block">
+                <img src="images/Certificate.png" style="display:inline-block;width:1000px">
+                <span class="centered" style="font-size:40px;width:800px;font-family:'Century Gothic'">@StudentName</span>
+                <span class="date" style="font-size:20px;width:800px;font-family:'Century Gothic'">@DateTime.Now.ToShortDateString()</span>
+            </div>
+            
+        </div>
+        <div style="text-align:center;margin-top:10px">
+            <div class="input-group mb-3" style="text-align:center;width:1000px;display:inline-block">
+              <div class="input-group-prepend" style="display:inline-block">
+                <span class="input-group-text" id="basic-addon1" style="width:120px;text-align:center">Your Name</span>
+              </div>
+              <input maxlength="17" type="text" class="form-control" @bind="StudentName" @onkeypress="InputChange" placeholder="John Doe" aria-label="Name" aria-describedby="basic-addon1" style="display:inline-block;width:870px">
+            </div>
+        </div>
+        
+        
+        <button class="btn btn-primary" style="display:inline-block;width:1000px" disabled="@(StudentName != null? (StudentName.Length>0? false:true):true)" @onclick="CanvasUwu">Download Certificate</button>
+    </div>
+    
+</body>
+
+
+@code {
+    public string StudentName { get; set; }
+    private async void CanvasUwu()
+    {
+        await JSRuntime.InvokeVoidAsync("AddCanvas");
+    }
+    private async void InputChange(KeyboardEventArgs e)
+    {
+        this.StateHasChanged();
+    }
+}

@@ -24,6 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="wwwroot\images\Certificate.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="wwwroot\images\coloringpolarbears.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
