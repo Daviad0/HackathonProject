@@ -1,4 +1,5 @@
 # PolarHab
+https://polarhab.azurewebsites.net/
 ## Home Screen
 Welcome to our project for the kuriushacks hackathon, with this website and a short implementation of EchoAR we provide a solution for the third prompt given to us by the Canadian Polar Bear Habitat. The home screen contains a basic overview of what CPBH is about.  You can find the navigation bar located directly under the header.
 ## Activities
